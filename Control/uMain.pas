@@ -276,7 +276,7 @@ end;
 procedure TfMain.btnCountersResetClick(Sender: TObject);
 begin
   if Application.MessageBox('Вы уверены, что хотите сбросить значения счетчиков?',
-    'Тестер "ИСТИНА"', MB_OKCANCEL + MB_ICONWARNING +
+    PWideChar('Тестер "' + Tester.TesterShortCaption + '"'), MB_OKCANCEL + MB_ICONWARNING +
     MB_DEFBUTTON2) = IDOK then
   begin
     Tester.ClearCounters;
@@ -295,7 +295,7 @@ end;
 procedure TfMain.btnResetResultsClick(Sender: TObject);
 begin
   if Application.MessageBox('Вы уверены, что хотите сбросить результаты замеров?',
-    'Тестер "ИСТИНА"', MB_OKCANCEL + MB_ICONWARNING +
+    PWideChar('Тестер "' + Tester.TesterShortCaption + '"'), MB_OKCANCEL + MB_ICONWARNING +
     MB_DEFBUTTON2) = IDOK then
   begin
     MainData.tblAll.EmptyTable;
@@ -363,7 +363,7 @@ end;
 procedure TfMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
   if Application.MessageBox('Вы уверены, что хотите прервать испытания и выйти?',
-    'Тестер "ИСТИНА"', MB_OKCANCEL + MB_ICONWARNING +
+    PWideChar('Тестер "' + Tester.TesterShortCaption + '"'), MB_OKCANCEL + MB_ICONWARNING +
     MB_DEFBUTTON2) = IDCANCEL then
   begin
     CanClose := false;
