@@ -376,6 +376,7 @@ var
 begin
 	LoadRes;
   FillViewMode;
+  ChangeMeasureMode(cbbMeasureMode.ItemIndex);
   pgcMeasure.ActivePageIndex := 0;
 //  UpdateCounters;
 
