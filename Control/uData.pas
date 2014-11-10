@@ -139,8 +139,8 @@ begin
     with TFloatField.Create(tblAll) do
     begin
       FieldName := 'Test_'+ IntToStr(i);
-      Precision := 4;
-      DisplayFormat := '0.0000';
+      Precision := 3;
+      DisplayFormat := '0.000';
 
       {$IFDEF INEJ}
         if Trim(tsun[i]) <> '' then
@@ -205,8 +205,8 @@ begin
     with TFloatField.Create(tblCurrent) do
     begin
       FieldName := 'Group_'+IntToStr(i)+'_L';
-      Precision := 4;
-      DisplayFormat := '0.0000';
+      Precision := 3;
+      DisplayFormat := '0.000';
       if Trim(grpmsg[i]) = '' then
         DisplayLabel := 'Группа ' + IntToStr(i) + '|Н.норма'
       else
@@ -218,8 +218,8 @@ begin
     with TFloatField.Create(tblCurrent) do
     begin
       FieldName := 'Group_'+IntToStr(i)+'_H';
-      Precision := 4;
-      DisplayFormat := '0.0000';
+      Precision := 3;
+      DisplayFormat := '0.000';
       if Trim(grpmsg[i]) = '' then
         DisplayLabel := 'Группа ' + IntToStr(i) + '|В.норма'
       else
@@ -234,8 +234,8 @@ begin
     FieldName := 'Val';
 
     Alignment := taCenter;
-    Precision := 4;
-    DisplayFormat := '0.0000';
+    Precision := 3;
+    DisplayFormat := '0.000';
     DisplayLabel := 'Значение';
     DisplayWidth := 20;
     DataSet := tblCurrent;
