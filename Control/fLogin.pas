@@ -89,7 +89,7 @@ begin
     ParamByName('TABL_N').AsString := Tabl_N;
     ExecQuery;
     if RecordCount = 0 then
-      Application.MessageBox('Такого пользователя не существует', 'Login', MB_ICONINFORMATION)
+      Application.MessageBox('Такого пользователя не существует', 'Аутентификация', MB_ICONINFORMATION)
     else
     begin
       if CompareStr(FieldByName('PASS').AsString, Password) = 0 then
@@ -98,7 +98,7 @@ begin
         SetTimeStamp(FieldByName('ID').AsInteger);
       end
       else
-        Application.MessageBox('Пароль не верный', 'Login', MB_ICONERROR)
+        Application.MessageBox('Пароль не верный', 'Аутентификация', MB_ICONERROR)
     end;
   finally
     Query.Free;
