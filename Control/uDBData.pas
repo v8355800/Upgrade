@@ -66,6 +66,7 @@ begin
     on e: EFIBError do
     begin
       MessageDlg('Не удается подключится к "Базе Данных"!',  mtWarning, [mbOK], 0);
+      PropStorage.SaveProperties;
       Halt;
     end;
   end;
