@@ -67,9 +67,9 @@ type
     lblWPFile: TLabel;
     lblPlan: TLabel;
     pcLeft: TPageControl;
-    TabSheet3: TTabSheet;
-    TabSheet4: TTabSheet;
-    TabSheet5: TTabSheet;
+    tabCounters: TTabSheet;
+    tabStat: TTabSheet;
+    tabWP: TTabSheet;
     pnlCounters: TPanel;
     Label1: TLabel;
     Panel3: TPanel;

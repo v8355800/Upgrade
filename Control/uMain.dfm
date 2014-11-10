@@ -2,7 +2,7 @@ object fMain: TfMain
   Left = -1168
   Top = 42
   Caption = #1058#1077#1089#1090#1077#1088' ""'
-  ClientHeight = 904
+  ClientHeight = 704
   ClientWidth = 854
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,7 +18,7 @@ object fMain: TfMain
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 885
+    Top = 685
     Width = 854
     Height = 19
     Panels = <
@@ -32,6 +32,7 @@ object fMain: TfMain
       item
         Width = 50
       end>
+    ExplicitTop = 885
   end
   object pnlStatus: TPanel
     AlignWithMargins = True
@@ -176,27 +177,29 @@ object fMain: TfMain
     Left = 244
     Top = 84
     Width = 610
-    Height = 801
+    Height = 601
     Align = alClient
     BevelOuter = bvNone
     ShowCaption = False
     TabOrder = 2
+    ExplicitHeight = 801
     object pnlMeasure: TPanel
       AlignWithMargins = True
       Left = 3
       Top = 3
       Width = 604
-      Height = 711
+      Height = 511
       Align = alClient
       BevelOuter = bvNone
       ShowCaption = False
       TabOrder = 0
+      ExplicitHeight = 711
       object GroupBox1: TGroupBox
         AlignWithMargins = True
         Left = 3
         Top = 3
         Width = 598
-        Height = 705
+        Height = 505
         Align = alClient
         Caption = 'F2 - '#1057#1083#1077#1076#1091#1102#1097#1072#1103' '#1074#1082#1083#1072#1076#1082#1072
         Font.Charset = DEFAULT_CHARSET
@@ -206,13 +209,14 @@ object fMain: TfMain
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
+        ExplicitHeight = 705
         object pgcMeasure: TPageControl
           AlignWithMargins = True
           Left = 5
           Top = 18
           Width = 588
-          Height = 682
-          ActivePage = TabSheet2
+          Height = 482
+          ActivePage = TabSheet1
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -221,6 +225,7 @@ object fMain: TfMain
           Font.Style = []
           ParentFont = False
           TabOrder = 0
+          ExplicitHeight = 682
           object TabSheet1: TTabSheet
             Caption = #1058#1077#1082#1091#1097#1080#1081' '#1087#1088#1080#1073#1086#1088
             object grdCurrent: TDBGridEh
@@ -228,7 +233,7 @@ object fMain: TfMain
               Left = 3
               Top = 3
               Width = 574
-              Height = 648
+              Height = 448
               Align = alClient
               AutoFitColWidths = True
               DynProps = <>
@@ -246,16 +251,12 @@ object fMain: TfMain
           object tsAll: TTabSheet
             Caption = #1042#1089#1077' '#1087#1088#1080#1073#1086#1088#1099
             ImageIndex = 2
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object grdAll: TDBGridEh
               AlignWithMargins = True
               Left = 3
               Top = 3
               Width = 574
-              Height = 648
+              Height = 448
               Align = alClient
               DynProps = <>
               IndicatorOptions = [gioShowRowIndicatorEh]
@@ -271,12 +272,13 @@ object fMain: TfMain
           object TabSheet2: TTabSheet
             Caption = #1041#1088#1072#1082'/'#1043#1086#1076#1077#1085
             ImageIndex = 1
+            ExplicitHeight = 654
             object imgStatus: TImage
               AlignWithMargins = True
               Left = 30
               Top = 30
               Width = 520
-              Height = 594
+              Height = 394
               Margins.Left = 30
               Margins.Top = 30
               Margins.Right = 30
@@ -294,16 +296,12 @@ object fMain: TfMain
           object tsLog: TTabSheet
             Caption = #1058#1077#1089#1090#1077#1088
             ImageIndex = 3
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object GroupBox2: TGroupBox
               AlignWithMargins = True
               Left = 3
               Top = 3
               Width = 574
-              Height = 537
+              Height = 337
               Align = alClient
               Caption = #1057#1054#1054#1041#1065#1045#1053#1048#1071
               Font.Charset = DEFAULT_CHARSET
@@ -318,7 +316,7 @@ object fMain: TfMain
                 Left = 5
                 Top = 18
                 Width = 564
-                Height = 514
+                Height = 314
                 Align = alClient
                 Font.Charset = DEFAULT_CHARSET
                 Font.Color = clWindowText
@@ -334,7 +332,7 @@ object fMain: TfMain
             object GroupBox3: TGroupBox
               AlignWithMargins = True
               Left = 3
-              Top = 546
+              Top = 346
               Width = 574
               Height = 105
               Align = alBottom
@@ -371,13 +369,14 @@ object fMain: TfMain
     object pnlBottom: TPanel
       AlignWithMargins = True
       Left = 3
-      Top = 720
+      Top = 520
       Width = 604
       Height = 78
       Align = alBottom
       BevelOuter = bvNone
       ShowCaption = False
       TabOrder = 1
+      ExplicitTop = 720
       object pnlHotKeys: TPanel
         Left = 0
         Top = 0
@@ -535,10 +534,11 @@ object fMain: TfMain
     Left = 3
     Top = 87
     Width = 238
-    Height = 795
+    Height = 595
     Align = alLeft
     ShowCaption = False
     TabOrder = 3
+    ExplicitHeight = 795
     object ValueListEditor1: TValueListEditor
       AlignWithMargins = True
       Left = 4
@@ -561,12 +561,13 @@ object fMain: TfMain
       Left = 1
       Top = 124
       Width = 236
-      Height = 670
-      ActivePage = TabSheet3
+      Height = 470
+      ActivePage = tabCounters
       Align = alClient
+      MultiLine = True
+      Style = tsFlatButtons
       TabOrder = 1
-      TabPosition = tpBottom
-      object TabSheet3: TTabSheet
+      object tabCounters: TTabSheet
         Caption = #1057#1095#1077#1090#1095#1080#1082#1080
         object pnlCounters: TPanel
           Left = 0
@@ -711,13 +712,9 @@ object fMain: TfMain
           OnClick = btnResetResultsClick
         end
       end
-      object TabSheet4: TTabSheet
+      object tabStat: TTabSheet
         Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object lblSTAFileName: TLabel
           AlignWithMargins = True
           Left = 3
@@ -786,13 +783,9 @@ object fMain: TfMain
           OnClick = btnEndSTAClick
         end
       end
-      object TabSheet5: TTabSheet
+      object tabWP: TTabSheet
         Caption = #1056#1055
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object btnShowWP: TButton
           AlignWithMargins = True
           Left = 3
