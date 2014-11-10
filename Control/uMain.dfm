@@ -212,7 +212,7 @@ object fMain: TfMain
           Top = 18
           Width = 588
           Height = 682
-          ActivePage = TabSheet1
+          ActivePage = TabSheet2
           Align = alClient
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -271,10 +271,6 @@ object fMain: TfMain
           object TabSheet2: TTabSheet
             Caption = #1041#1088#1072#1082'/'#1043#1086#1076#1077#1085
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object imgStatus: TImage
               AlignWithMargins = True
               Left = 30
@@ -606,9 +602,6 @@ object fMain: TfMain
             Align = alTop
             BevelOuter = bvLowered
             TabOrder = 0
-            ExplicitLeft = 2
-            ExplicitTop = 24
-            ExplicitWidth = 217
             object Bevel1: TBevel
               Left = 85
               Top = 8
@@ -721,6 +714,10 @@ object fMain: TfMain
       object TabSheet4: TTabSheet
         Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object lblSTAFileName: TLabel
           AlignWithMargins = True
           Left = 3
@@ -792,6 +789,10 @@ object fMain: TfMain
       object TabSheet5: TTabSheet
         Caption = #1056#1055
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object btnShowWP: TButton
           AlignWithMargins = True
           Left = 3

@@ -13,11 +13,14 @@ type
     Bevel1: TBevel;
     Label1: TLabel;
     Label2: TLabel;
-    Image1: TImage;
+    imgTester: TImage;
     procedure btnOKClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
+    PNG_INEJ, PNG_ISTINA: TPngImage;
   public
     { Public declarations }
     class function Execute(const TesterCaption: string): Boolean;
@@ -39,6 +42,28 @@ begin
   finally
     Free;
   end;
+end;
+
+procedure TfAbout.FormCreate(Sender: TObject);
+begin
+  PNG_INEJ   := TPngImage.Create;
+  PNG_ISTINA := TPngImage.Create;
+  PNG_INEJ.LoadFromResourceName(HInstance, 'IMG_INEJ_BIG');
+  PNG_ISTINA.LoadFromResourceName(HInstance, 'IMG_ISTINA_BIG');
+
+  {$IFDEF INEJ}
+  imgTester.Picture.Graphic := PNG_INEJ;
+  {$ENDIF}
+
+  {$IFDEF ISTINA}
+  imgTester.Picture.Graphic := PNG_ISTINA;
+  {$ENDIF}
+end;
+
+procedure TfAbout.FormDestroy(Sender: TObject);
+begin
+  PNG_INEJ.Free;
+  PNG_ISTINA.Free;
 end;
 
 procedure TfAbout.btnOKClick(Sender: TObject);
