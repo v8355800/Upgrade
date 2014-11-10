@@ -307,6 +307,8 @@ begin
         limx[maxgroup, z, 2] := limx[i, z, 2];
     end;
   end;
+
+  inherited;
 end;
 
 procedure TIstina.DoMeasureResult(Defect: Boolean; MResult: TIstinaResult);

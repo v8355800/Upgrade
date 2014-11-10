@@ -118,7 +118,7 @@ type
       function CompileWP: Boolean;
       property WP: String read fWP;// write SetWP;
       procedure GetNormsFromFile(const FileName: String);
-      procedure GetNormsFromString(const Text: String); virtual; abstract;
+      procedure GetNormsFromString(const Text: String); virtual;
       property Norms: String read fNorms;// write SetWP;
       property UseFileNorm: Boolean read fUseFileNorm;
 
@@ -250,6 +250,11 @@ begin
     Exit;
 
   GetNormsFromString(TFile.ReadAllText(FileName));
+end;
+
+procedure TCustomTester.GetNormsFromString(const Text: String);
+begin
+	fNorms := Text;
 end;
 
 procedure TCustomTester.GetWPFromFile(const FileName: String);
