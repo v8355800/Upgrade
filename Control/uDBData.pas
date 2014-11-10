@@ -10,7 +10,6 @@ type
   TDBData = class(TDataModule)
     DB: TpFIBDatabase;
     Transaction: TpFIBTransaction;
-    INI: TIniPropStorageManEh;
     PropStorage: TPropStorageEh;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);

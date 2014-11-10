@@ -1,8 +1,6 @@
 object MainData: TMainData
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 64727
-  Top = 149
   Height = 222
   Width = 311
   object tblAll: TMemTableEh
@@ -71,10 +69,5 @@ object MainData: TMainData
     DataSet = tblCurrent
     Left = 16
     Top = 56
-  end
-  object INI: TIniPropStorageManEh
-    IniFileName = 'Config.ini'
-    Left = 184
-    Top = 16
   end
 end

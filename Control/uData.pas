@@ -34,7 +34,6 @@ type
     tblCurrent: TMemTableEh;
     dsAll: TDataSource;
     dsCurrent: TDataSource;
-    INI: TIniPropStorageManEh;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -54,6 +53,7 @@ type
 
 var
   MainData: TMainData;
+  INI: TIniPropStorageManEh;
   IData: TInputDataRec;
 {$IFDEF INEJ}
 	Tester: TInej;
@@ -377,5 +377,10 @@ begin
     WriteLine('Значения');
   end;
 end;
+
+initialization
+  INI := TIniPropStorageManEh.Create(nil);
+  INI.IniFileName := ChangeFileExt( ExtractFileName(ParamStr(0)), '.ini' );
+  SetDefaultPropStorageManager(INI);
 
 end.

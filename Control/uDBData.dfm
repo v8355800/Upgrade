@@ -22,15 +22,9 @@ object DBData: TDBData
     Left = 16
     Top = 56
   end
-  object INI: TIniPropStorageManEh
-    IniFileName = 'Control.ini'
-    Left = 272
-    Top = 8
-  end
   object PropStorage: TPropStorageEh
     Active = False
     Section = 'uData'
-    StorageManager = INI
     StoredProps.Strings = (
       'DB.<P>.DBName')
     Left = 272
