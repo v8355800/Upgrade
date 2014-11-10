@@ -45,12 +45,6 @@ type
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     pnlStatus: TPanel;
-    btnCountersReset: TButton;
-    GroupBox4: TGroupBox;
-    btnSaveSTA: TButton;
-    btnBeginSTA: TButton;
-    btnEndSTA: TButton;
-    lblSTAFileName: TLabel;
     PD: TJvProgressDialog;
     pnlClient: TPanel;
     pnlBottom: TPanel;
@@ -62,12 +56,20 @@ type
     cbbMeasureMode: TComboBox;
     Label4: TLabel;
     btnClose: TButton;
-    GroupBox5: TGroupBox;
-    btnShowWP: TButton;
-    btnShowNorms: TButton;
-    btnResetResults: TButton;
     Timer: TTimer;
     ValueListEditor1: TValueListEditor;
+    btnAbout: TBitBtn;
+    GroupBox6: TGroupBox;
+    GroupBox7: TGroupBox;
+    lblStatus: TLabel;
+    lblFIO: TLabel;
+    lblTabN: TLabel;
+    lblWPFile: TLabel;
+    lblPlan: TLabel;
+    pcLeft: TPageControl;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
     pnlCounters: TPanel;
     Label1: TLabel;
     Panel3: TPanel;
@@ -77,14 +79,14 @@ type
     Bevel2: TBevel;
     lblPercents: TJvHTLabel;
     lblCountersAll: TLabel;
-    btnAbout: TBitBtn;
-    GroupBox6: TGroupBox;
-    GroupBox7: TGroupBox;
-    lblStatus: TLabel;
-    lblFIO: TLabel;
-    lblTabN: TLabel;
-    lblWPFile: TLabel;
-    lblPlan: TLabel;
+    btnCountersReset: TButton;
+    btnResetResults: TButton;
+    btnShowWP: TButton;
+    btnShowNorms: TButton;
+    btnSaveSTA: TButton;
+    lblSTAFileName: TLabel;
+    btnBeginSTA: TButton;
+    btnEndSTA: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure ThreadExecute(Sender: TObject; Params: Pointer);
@@ -378,6 +380,7 @@ begin
   FillViewMode;
   ChangeMeasureMode(cbbMeasureMode.ItemIndex);
   pgcMeasure.ActivePageIndex := 0;
+  pcLeft.ActivePageIndex     := 0;
 //  UpdateCounters;
 
   { Сопоставить grid`ы с данными }

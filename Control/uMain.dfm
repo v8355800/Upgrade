@@ -1,6 +1,6 @@
 object fMain: TfMain
-  Left = -1016
-  Top = 28
+  Left = -1168
+  Top = 42
   Caption = #1058#1077#1089#1090#1077#1088' ""'
   ClientHeight = 904
   ClientWidth = 854
@@ -543,149 +543,6 @@ object fMain: TfMain
     Align = alLeft
     ShowCaption = False
     TabOrder = 3
-    object btnCountersReset: TButton
-      AlignWithMargins = True
-      Left = 4
-      Top = 496
-      Width = 230
-      Height = 25
-      Align = alTop
-      Caption = #1057#1073#1088#1086#1089#1080#1090#1100' '#1089#1095#1077#1090#1095#1080#1082#1080
-      TabOrder = 0
-      OnClick = btnCountersResetClick
-    end
-    object GroupBox4: TGroupBox
-      AlignWithMargins = True
-      Left = 4
-      Top = 600
-      Width = 230
-      Height = 105
-      Align = alBottom
-      Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 1
-      object lblSTAFileName: TLabel
-        Left = 0
-        Top = 48
-        Width = 227
-        Height = 13
-        Alignment = taCenter
-        AutoSize = False
-        Caption = #1047#1072#1087#1080#1089#1100' '#1085#1077' '#1074#1077#1076#1077#1090#1089#1103
-      end
-      object btnSaveSTA: TButton
-        Left = 6
-        Top = 16
-        Width = 217
-        Height = 25
-        Caption = #1047#1072#1087#1080#1089#1100' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1080' '#1074' '#1092#1072#1081#1083'...'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnSaveSTAClick
-      end
-      object btnBeginSTA: TButton
-        Left = 8
-        Top = 72
-        Width = 97
-        Height = 25
-        Caption = #1053#1072#1095#1072#1090#1100' '#1079#1072#1087#1080#1089#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnBeginSTAClick
-      end
-      object btnEndSTA: TButton
-        Left = 126
-        Top = 72
-        Width = 97
-        Height = 25
-        Caption = #1047#1072#1082#1086#1085#1095#1080#1090#1100' '#1079#1072#1087#1080#1089#1100
-        Enabled = False
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-        OnClick = btnEndSTAClick
-      end
-    end
-    object GroupBox5: TGroupBox
-      AlignWithMargins = True
-      Left = 4
-      Top = 711
-      Width = 230
-      Height = 80
-      Align = alBottom
-      Caption = #1056#1072#1073#1086#1095#1072#1103' '#1087#1088#1086#1075#1088#1072#1084#1084#1072':'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 2
-      object btnShowWP: TButton
-        AlignWithMargins = True
-        Left = 5
-        Top = 19
-        Width = 220
-        Height = 25
-        Align = alBottom
-        Caption = #1055#1088#1086#1089#1084#1086#1090#1088' "'#1056#1055'"'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 0
-        OnClick = btnShowWPClick
-      end
-      object btnShowNorms: TButton
-        AlignWithMargins = True
-        Left = 5
-        Top = 50
-        Width = 220
-        Height = 25
-        Align = alBottom
-        Caption = #1055#1088#1086#1089#1084#1086#1090#1088' "'#1053#1086#1088#1084'"'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        OnClick = btnShowNormsClick
-      end
-    end
-    object btnResetResults: TButton
-      AlignWithMargins = True
-      Left = 4
-      Top = 527
-      Width = 230
-      Height = 25
-      Align = alTop
-      Caption = #1057#1073#1088#1086#1089#1080#1090#1100' '#1079#1072#1084#1077#1088#1099
-      TabOrder = 3
-      OnClick = btnResetResultsClick
-    end
     object ValueListEditor1: TValueListEditor
       AlignWithMargins = True
       Left = 4
@@ -696,7 +553,7 @@ object fMain: TfMain
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goThumbTracking]
       Strings.Strings = (
         '=')
-      TabOrder = 4
+      TabOrder = 0
       TitleCaptions.Strings = (
         #1055#1072#1088#1072#1084#1077#1090#1088
         #1047#1085#1072#1095#1077#1085#1080#1077)
@@ -704,121 +561,270 @@ object fMain: TfMain
         117
         107)
     end
-    object pnlCounters: TPanel
+    object pcLeft: TPageControl
       Left = 1
       Top = 124
       Width = 236
-      Height = 369
-      Align = alTop
-      BevelOuter = bvNone
-      ShowCaption = False
-      TabOrder = 5
-      object Label1: TLabel
-        Left = 0
-        Top = 0
-        Width = 236
-        Height = 19
-        Align = alTop
-        Alignment = taCenter
-        Caption = #1057#1063#1045#1058#1063#1048#1050#1048
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentFont = False
-        ExplicitWidth = 81
+      Height = 670
+      ActivePage = TabSheet3
+      Align = alClient
+      TabOrder = 1
+      TabPosition = tpBottom
+      object TabSheet3: TTabSheet
+        Caption = #1057#1095#1077#1090#1095#1080#1082#1080
+        object pnlCounters: TPanel
+          Left = 0
+          Top = 0
+          Width = 228
+          Height = 369
+          Align = alTop
+          BevelOuter = bvNone
+          ShowCaption = False
+          TabOrder = 0
+          object Label1: TLabel
+            Left = 0
+            Top = 0
+            Width = 228
+            Height = 19
+            Align = alTop
+            Alignment = taCenter
+            Caption = #1057#1063#1045#1058#1063#1048#1050#1048
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            ExplicitWidth = 81
+          end
+          object Panel3: TPanel
+            AlignWithMargins = True
+            Left = 3
+            Top = 22
+            Width = 222
+            Height = 337
+            Align = alTop
+            BevelOuter = bvLowered
+            TabOrder = 0
+            ExplicitLeft = 2
+            ExplicitTop = 24
+            ExplicitWidth = 217
+            object Bevel1: TBevel
+              Left = 85
+              Top = 8
+              Width = 1
+              Height = 321
+              Shape = bsLeftLine
+            end
+            object JvHTLabel1: TJvHTLabel
+              Left = 8
+              Top = 8
+              Width = 63
+              Height = 337
+              Caption = 
+                #1043#1056#1059#1055#1055#1040'  0<br>'#13#10#1043#1056#1059#1055#1055#1040'  1<br>'#13#10#1043#1056#1059#1055#1055#1040'  2<br>'#13#10#1043#1056#1059#1055#1055#1040'  3<br>'#13#10#1043#1056#1059#1055 +
+                #1055#1040'  4<br>'#13#10#1043#1056#1059#1055#1055#1040'  5<br>'#13#10#1043#1056#1059#1055#1055#1040'  6<br>'#13#10#1043#1056#1059#1055#1055#1040'  7<br>'#13#10#1043#1056#1059#1055#1055#1040'  ' +
+                '8<br>'#13#10#1043#1056#1059#1055#1055#1040'  9<br>'#13#10#1043#1056#1059#1055#1055#1040' 10<br>'#13#10#1043#1056#1059#1055#1055#1040' 11<br>'#13#10#1043#1056#1059#1055#1055#1040' 12<br' +
+                '>'#13#10#1043#1056#1059#1055#1055#1040' 13<br>'#13#10#1043#1056#1059#1055#1055#1040' 14<br>'#13#10#1043#1056#1059#1055#1055#1040' 15<br>'#13#10'<br>'#13#10'<b>'#13#10'<font' +
+                ' color=#007F00>'#1043#1054#1044#1053#1067#1045'</font><br>'#13#10'<font color=#0000FF>'#1041#1056#1040#1050'</font' +
+                '><br>'#13#10#1042#1057#1045#1043#1054'<br>'#13#10'</b>'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblCounters: TJvHTLabel
+              Left = 93
+              Top = 8
+              Width = 50
+              Height = 321
+              AutoSize = False
+              Caption = 
+                '<align="center">0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13 +
+                #10'<font color=#0000FF>0</font><br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0' +
+                '<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'<br>'#13#10'<b>'#13#10'<font color=#007F00>0</fon' +
+                't><br>'#13#10'<font color=#0000FF>0</font><br>'#13#10'</b>'#13#10'</align>'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object Bevel2: TBevel
+              Left = 149
+              Top = 8
+              Width = 1
+              Height = 305
+              Shape = bsLeftLine
+            end
+            object lblPercents: TJvHTLabel
+              Left = 157
+              Top = 8
+              Width = 50
+              Height = 321
+              AutoSize = False
+              Caption = 
+                '<align="center">0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13 +
+                #10'<font color=#0000FF>0</font><br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0' +
+                '<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'<br>'#13#10'<b>'#13#10'<font color=#007F00>0</fon' +
+                't><br>'#13#10'<font color=#0000FF>0</font><br>'#13#10'</b>'#13#10'</align>'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = []
+              ParentFont = False
+            end
+            object lblCountersAll: TLabel
+              Left = 89
+              Top = 312
+              Width = 122
+              Height = 16
+              Alignment = taCenter
+              AutoSize = False
+              Caption = '0'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -13
+              Font.Name = 'Tahoma'
+              Font.Style = [fsBold]
+              ParentFont = False
+            end
+          end
+        end
+        object btnCountersReset: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 403
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1057#1073#1088#1086#1089#1080#1090#1100' '#1089#1095#1077#1090#1095#1080#1082#1080
+          TabOrder = 1
+          OnClick = btnCountersResetClick
+        end
+        object btnResetResults: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 372
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1057#1073#1088#1086#1089#1080#1090#1100' '#1079#1072#1084#1077#1088#1099
+          TabOrder = 2
+          OnClick = btnResetResultsClick
+        end
       end
-      object Panel3: TPanel
-        Left = 10
-        Top = 24
-        Width = 217
-        Height = 337
-        BevelOuter = bvLowered
-        TabOrder = 0
-        object Bevel1: TBevel
-          Left = 85
-          Top = 8
-          Width = 1
-          Height = 321
-          Shape = bsLeftLine
-        end
-        object JvHTLabel1: TJvHTLabel
-          Left = 8
-          Top = 8
-          Width = 63
-          Height = 337
-          Caption = 
-            #1043#1056#1059#1055#1055#1040'  0<br>'#13#10#1043#1056#1059#1055#1055#1040'  1<br>'#13#10#1043#1056#1059#1055#1055#1040'  2<br>'#13#10#1043#1056#1059#1055#1055#1040'  3<br>'#13#10#1043#1056#1059#1055 +
-            #1055#1040'  4<br>'#13#10#1043#1056#1059#1055#1055#1040'  5<br>'#13#10#1043#1056#1059#1055#1055#1040'  6<br>'#13#10#1043#1056#1059#1055#1055#1040'  7<br>'#13#10#1043#1056#1059#1055#1055#1040'  ' +
-            '8<br>'#13#10#1043#1056#1059#1055#1055#1040'  9<br>'#13#10#1043#1056#1059#1055#1055#1040' 10<br>'#13#10#1043#1056#1059#1055#1055#1040' 11<br>'#13#10#1043#1056#1059#1055#1055#1040' 12<br' +
-            '>'#13#10#1043#1056#1059#1055#1055#1040' 13<br>'#13#10#1043#1056#1059#1055#1055#1040' 14<br>'#13#10#1043#1056#1059#1055#1055#1040' 15<br>'#13#10'<br>'#13#10'<b>'#13#10'<font' +
-            ' color=#007F00>'#1043#1054#1044#1053#1067#1045'</font><br>'#13#10'<font color=#0000FF>'#1041#1056#1040#1050'</font' +
-            '><br>'#13#10#1042#1057#1045#1043#1054'<br>'#13#10'</b>'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblCounters: TJvHTLabel
-          Left = 93
-          Top = 8
-          Width = 50
-          Height = 321
-          AutoSize = False
-          Caption = 
-            '<align="center">0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13 +
-            #10'<font color=#0000FF>0</font><br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0' +
-            '<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'<br>'#13#10'<b>'#13#10'<font color=#007F00>0</fon' +
-            't><br>'#13#10'<font color=#0000FF>0</font><br>'#13#10'</b>'#13#10'</align>'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object Bevel2: TBevel
-          Left = 149
-          Top = 8
-          Width = 1
-          Height = 305
-          Shape = bsLeftLine
-        end
-        object lblPercents: TJvHTLabel
-          Left = 157
-          Top = 8
-          Width = 50
-          Height = 321
-          AutoSize = False
-          Caption = 
-            '<align="center">0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13 +
-            #10'<font color=#0000FF>0</font><br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0' +
-            '<br>'#13#10'0<br>'#13#10'0<br>'#13#10'0<br>'#13#10'<br>'#13#10'<b>'#13#10'<font color=#007F00>0</fon' +
-            't><br>'#13#10'<font color=#0000FF>0</font><br>'#13#10'</b>'#13#10'</align>'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Tahoma'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblCountersAll: TLabel
-          Left = 89
-          Top = 312
-          Width = 122
-          Height = 16
+      object TabSheet4: TTabSheet
+        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+        ImageIndex = 1
+        object lblSTAFileName: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 34
+          Width = 222
+          Height = 23
+          Align = alTop
           Alignment = taCenter
           AutoSize = False
-          Caption = '0'
+          Caption = #1047#1072#1087#1080#1089#1100' '#1085#1077' '#1074#1077#1076#1077#1090#1089#1103
+          Layout = tlCenter
+          ExplicitLeft = 0
+          ExplicitTop = 25
+          ExplicitWidth = 228
+        end
+        object btnSaveSTA: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1047#1072#1087#1080#1089#1100' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1080' '#1074' '#1092#1072#1081#1083'...'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -13
+          Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
+          TabOrder = 0
+          OnClick = btnSaveSTAClick
+        end
+        object btnBeginSTA: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 60
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1053#1072#1095#1072#1090#1100' '#1079#1072#1087#1080#1089#1100
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnBeginSTAClick
+        end
+        object btnEndSTA: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 91
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1047#1072#1082#1086#1085#1095#1080#1090#1100' '#1079#1072#1087#1080#1089#1100
+          Enabled = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          OnClick = btnEndSTAClick
+        end
+      end
+      object TabSheet5: TTabSheet
+        Caption = #1056#1055
+        ImageIndex = 2
+        object btnShowWP: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 34
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1055#1088#1086#1089#1084#1086#1090#1088' "'#1056#1055'"'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          OnClick = btnShowWPClick
+        end
+        object btnShowNorms: TButton
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 222
+          Height = 25
+          Align = alTop
+          Caption = #1055#1088#1086#1089#1084#1086#1090#1088' "'#1053#1086#1088#1084'"'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          OnClick = btnShowNormsClick
         end
       end
     end
