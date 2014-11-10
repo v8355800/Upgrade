@@ -159,11 +159,11 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <RcCompile Include="RES\Resource.rc">
-            <Form>Resource.res</Form>
+        <RcCompile Include="RES\RES.rc">
+            <Form>RES.res</Form>
         </RcCompile>
-        <RcCompile Include="SQL\SQLResources.rc">
-            <Form>SQLResources.res</Form>
+        <RcCompile Include="SQL\SQL.rc">
+            <Form>SQL.res</Form>
         </RcCompile>
         <DCCReference Include="uAbout.pas">
             <Form>fAbout</Form>
@@ -187,19 +187,19 @@ $(PostBuildEvent)]]></PostBuildEvent>
         </DCCReference>
         <DCCReference Include="..\Testers\TESTER_BASE.pas"/>
         <DCCReference Include="..\Testers\Inej\TESTER_INEJ.pas"/>
-        <DCCReference Include="..\Testers\Inej\TESTER_INEJ_GLOBAL.pas"/>
+        <DCCReference Include="..\Testers\Inej\TESTER_INEJ_GLOBAL.PAS"/>
         <DCCReference Include="..\Testers\Inej\TESTER_INEJ_IO.pas"/>
         <DCCReference Include="..\Testers\Istina\TESTER_ISTINA.pas"/>
-        <DCCReference Include="..\Testers\Istina\TESTER_ISTINA_GLOBAL.pas"/>
+        <DCCReference Include="..\Testers\Istina\TESTER_ISTINA_GLOBAL.PAS"/>
         <DCCReference Include="..\Testers\Istina\TESTER_ISTINA_IO.pas"/>
-        <DCCReference Include="..\Testers\Istina\TESTER_ISTINA_REG.pas"/>
+        <DCCReference Include="..\Testers\Istina\TESTER_ISTINA_REG.PAS"/>
         <DCCReference Include="..\Testers\Istina\uTestConditions.pas"/>
         <DCCReference Include="..\Testers\Inej\Import\IMPORT_Inej.pas"/>
         <DCCReference Include="..\Testers\Inej\Import\IMP_TESTER_INEJ.pas"/>
-        <DCCReference Include="..\Testers\Inej\Import\IMP_TESTER_INEJ_GLOBAL.pas"/>
+        <DCCReference Include="..\Testers\Inej\Import\IMP_TESTER_INEJ_GLOBAL.PAS"/>
         <DCCReference Include="..\Testers\Istina\Import\IMPORT_Istina.pas"/>
         <DCCReference Include="..\Testers\Istina\Import\IMP_TESTER_ISTINA.pas"/>
-        <DCCReference Include="..\Testers\Istina\Import\IMP_TESTER_ISTINA_GLOBAL.pas"/>
+        <DCCReference Include="..\Testers\Istina\Import\IMP_TESTER_ISTINA_GLOBAL.PAS"/>
         <BuildConfiguration Include="INEJ_Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

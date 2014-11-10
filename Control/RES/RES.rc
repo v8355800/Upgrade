@@ -1,0 +1,4 @@
+IMG_BAD RCDATA "Bad.png"
+IMG_GOOD RCDATA "Good.png"
+IMG_GOOD_WMF RCDATA "Ok_Mark_clip_art.wmf"
+IMG_BAD_WMF RCDATA "Wrong_Cross_clip_art.wmf"

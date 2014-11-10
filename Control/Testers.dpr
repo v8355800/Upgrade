@@ -1,7 +1,7 @@
 program Testers;
         
-{$R 'Resource.res' 'RES\Resource.rc'}
-{$R 'SQLResources.res' 'SQL\SQLResources.rc'}
+{$R 'RES.res' 'RES\RES.rc'}
+{$R 'SQL.res' 'SQL\SQL.rc'}
 
 uses
   Vcl.Forms,

@@ -1,4 +1,0 @@
-USERSLIST RCDATA "UsersList.sql"
-UpdateTimeStamp RCDATA "UpdateTimeStamp.sql"
-GetPass RCDATA "GetPass.sql"
-GetCRC RCDATA "GetCRC.sql"
