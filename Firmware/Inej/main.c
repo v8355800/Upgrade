@@ -79,35 +79,40 @@ int main(void)
 		if (VCP_get_char(&theByte))
 		{
 
-			switch (theByte) {
-			case 'W':
-				VCP_get_char(&theByte);
-				Word = theByte << 8;
-				VCP_get_char(&theByte);
-				Word += theByte;
-				GPIO_Write(GPIOB, Word);
+			switch (theByte)
+			{
+				case '?':
+					VCP_send_str("INEJ");
 				break;
 
-			case 'R':
-				Word = GPIO_ReadInputData(GPIOE);
-				VCP_put_char(Word);
-				VCP_put_char(Word >> 8);
-				break;
+				case 'W':
+					VCP_get_char(&theByte);
+					Word = theByte << 8;
+					VCP_get_char(&theByte);
+					Word += theByte;
+					GPIO_Write(GPIOB, Word);
+					break;
 
-			case 'C':
-				VCP_get_char(&theByte);
-				if ( BIT_IS_SET(theByte, 3) != 0 ) {
-					BIT_CLEAR(theByte, 3);
-					GPIO_SetBits(GPIOC, (1 << theByte));
-				} else {
-					GPIO_ResetBits(GPIOC, (1 << theByte) );
-				}
-				break;
+				case 'R':
+					Word = GPIO_ReadInputData(GPIOE);
+					VCP_put_char(Word);
+					VCP_put_char(Word >> 8);
+					break;
 
-			case 'T':
-				theByte = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_5);
-				VCP_put_char(theByte);
-				break;
+				case 'C':
+					VCP_get_char(&theByte);
+					if ( BIT_IS_SET(theByte, 3) != 0 ) {
+						BIT_CLEAR(theByte, 3);
+						GPIO_SetBits(GPIOC, (1 << theByte));
+					} else {
+						GPIO_ResetBits(GPIOC, (1 << theByte) );
+					}
+					break;
+
+				case 'T':
+					theByte = GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_5);
+					VCP_put_char(theByte);
+					break;
 			}
 
 
