@@ -101,8 +101,8 @@ int main(void)
 
 				case 'C':
 					VCP_get_char(&theByte);
-					if ( BIT_IS_SET(theByte, 3) != 0 ) {
-						BIT_CLEAR(theByte, 3);
+					if ( BIT_IS_SET(theByte, 8) != 0 ) {
+						BIT_CLEAR(theByte, 8);
 						GPIO_SetBits(GPIOC, (1 << theByte));
 					} else {
 						GPIO_ResetBits(GPIOC, (1 << theByte) );
@@ -166,7 +166,7 @@ void init()
 	/* Шина Управления */
 	GPIO_InitTypeDef GPIOC_Config;
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-	GPIOC_Config.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2| GPIO_Pin_3| GPIO_Pin_4;
+	GPIOC_Config.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2| GPIO_Pin_3| GPIO_Pin_4 | GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;
 	GPIOC_Config.GPIO_Mode = GPIO_Mode_OUT;
 	GPIOC_Config.GPIO_OType = GPIO_OType_PP;
 	GPIOC_Config.GPIO_Speed = GPIO_Speed_25MHz;
