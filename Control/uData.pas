@@ -380,7 +380,7 @@ end;
 
 initialization
   INI := TIniPropStorageManEh.Create(nil);
-  INI.IniFileName := ChangeFileExt( ExtractFileName(ParamStr(0)), '.ini' );
+  INI.IniFileName := ChangeFileExt( ParamStr(0), '.ini' );
   SetDefaultPropStorageManager(INI);
 
 end.
