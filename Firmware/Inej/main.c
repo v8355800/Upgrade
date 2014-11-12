@@ -101,8 +101,8 @@ int main(void)
 
 				case 'C':
 					VCP_get_char(&theByte);
-					if ( BIT_IS_SET(theByte, 8) != 0 ) {
-						BIT_CLEAR(theByte, 8);
+					if ( BIT_IS_SET(theByte, 7) != 0 ) {
+						BIT_CLEAR(theByte, 7);
 						GPIO_SetBits(GPIOC, (1 << theByte));
 					} else {
 						GPIO_ResetBits(GPIOC, (1 << theByte) );

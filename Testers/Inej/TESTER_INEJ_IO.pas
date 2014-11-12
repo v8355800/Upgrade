@@ -297,7 +297,7 @@ begin
   DataBuf[0] := Ord( 'C' );
   DataBuf[1] := Ord(Pin) + 1;
   if TurnOn then
-      DataBuf[1] := SetBit(DataBuf[1], 8);
+      DataBuf[1] := SetBit(DataBuf[1], 7);
 
   FComm.SendData(PAnsiChar(@DataBuf[0]), Length(DataBuf));
 end;
