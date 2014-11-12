@@ -151,7 +151,7 @@ end;
 
 function RegisterSubrangeType_relay(H: Integer): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'relay =  1 .. 16;');
+  result := RegisterTypeDeclaration(H, 'relay =  1 .. 32;');
 end;
 
 

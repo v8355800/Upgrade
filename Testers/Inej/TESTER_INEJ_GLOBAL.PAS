@@ -23,7 +23,7 @@ TYPE
 //  Units        = (no, nA, uA, mA, A, mV, V, mS, S, x3, x4, x5, x6, x7, x8, x9, x10, x11);
 	Units        = (no, nA, uA, mA, mA9, mA10, A, mV, V, V8, mS, S, x3, x4, x5, x6, x7, x8, x9, x10, x11);
   Jumps        = (none, Osc, Grt, Lwr, Over);
-  relay    = 1 .. 16;
+  relay    = 1 .. 32;
   relays   = set of relay;
   ITOGO   = (PASS, FAIL);                                                        { –≈«”À‹“¿“ »—œ€“¿Õ»ﬂ }
   ARLIM   = ARRAY [1 .. maxtest, 1 .. 2] OF REAL;

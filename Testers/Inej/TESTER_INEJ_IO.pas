@@ -22,7 +22,7 @@ const
 
 type
   TRequestType = (RequestA{, RequestB});
-  ControlPin   = (PC1, PC2, PC3, PC4);
+  ControlPin   = (PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8, PC9);
   ControlPin2  = (WriteData, PC00, ReadData, PC01);
 
   { Базовый класс Ввода/Вывода }
@@ -40,7 +40,7 @@ type
   public
     procedure readat(var Data: Word);
     procedure wridat(const Data: Word);
-		procedure writrele(a: word); virtual; abstract;
+		procedure writrele(a: Cardinal); virtual; abstract;
     function WaitResult(const TimeOut: Cardinal = DefaultTimeOut): Boolean;
     procedure ControlStrobe(const Pin: ControlPin2; T: Cardinal = StrobeTime); overload;
 
@@ -63,7 +63,7 @@ type
     function Request(const RequestType: TRequestType): Boolean; override;
     procedure Control(const Pin: ControlPin; TurnOn: Boolean); overload; override;
   public
- 		procedure writrele(a: word); override;
+ 		procedure writrele(a: Cardinal); override;
 
     constructor Create(AOwner: TComponent);
     destructor Destroy; override;
@@ -237,9 +237,22 @@ begin
   FComm.SendData(PAnsiChar(@DataBuf[0]), Length(DataBuf));
 end;
 
-procedure TCommIO.writrele(a: word);
+//------------------------------------------------------------------------------
+// Управление реле
+//------------------------------------------------------------------------------
+procedure TCommIO.writrele(a: Cardinal);
 begin
-//
+	//
+	Control(PC6, False);
+	Control(PC8, False);
+
+  Write(Lo(a));
+  ControlStrobe(PC7);
+  Write(Hi(a));
+  ControlStrobe(PC9);
+
+	Control(PC6, True);
+	Control(PC8, True);
 end;
 
 //------------------------------------------------------------------------------
@@ -277,9 +290,9 @@ begin
   DataBuf[0] := Ord( 'C' );
   DataBuf[1] := Ord(Pin) + 1;
   if TurnOn then
-      DataBuf[1] := SetBit(DataBuf[1], 3);
+      DataBuf[1] := SetBit(DataBuf[1], 8);
 
-    FComm.SendData(PAnsiChar(@DataBuf[0]), Length(DataBuf));
+  FComm.SendData(PAnsiChar(@DataBuf[0]), Length(DataBuf));
 end;
 
 end.
