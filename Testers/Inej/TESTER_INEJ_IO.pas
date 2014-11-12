@@ -167,7 +167,7 @@ var
   S: string;
 begin
   Result := True;
-{
+
   FComm.DeviceListLoad;
   for i := 0 to FComm.DeviceCount-1 do
   begin
@@ -195,7 +195,7 @@ begin
     else
       Fcomm.Active := False;
   end;
-}
+{
   FComm.ComPortNo := 3;
   try
 	  FComm.Active := True;
@@ -203,6 +203,7 @@ begin
 		;
   end;
   Result := not FComm.Active;
+}
 end;
 
 //------------------------------------------------------------------------------
