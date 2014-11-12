@@ -32,7 +32,6 @@ object fMain: TfMain
       item
         Width = 50
       end>
-    ExplicitTop = 885
   end
   object pnlStatus: TPanel
     AlignWithMargins = True
@@ -182,7 +181,6 @@ object fMain: TfMain
     BevelOuter = bvNone
     ShowCaption = False
     TabOrder = 2
-    ExplicitHeight = 801
     object pnlMeasure: TPanel
       AlignWithMargins = True
       Left = 3
@@ -193,7 +191,6 @@ object fMain: TfMain
       BevelOuter = bvNone
       ShowCaption = False
       TabOrder = 0
-      ExplicitHeight = 711
       object GroupBox1: TGroupBox
         AlignWithMargins = True
         Left = 3
@@ -209,7 +206,6 @@ object fMain: TfMain
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
-        ExplicitHeight = 705
         object pgcMeasure: TPageControl
           AlignWithMargins = True
           Left = 5
@@ -225,7 +221,6 @@ object fMain: TfMain
           Font.Style = []
           ParentFont = False
           TabOrder = 0
-          ExplicitHeight = 682
           object TabSheet1: TTabSheet
             Caption = #1058#1077#1082#1091#1097#1080#1081' '#1087#1088#1080#1073#1086#1088
             object grdCurrent: TDBGridEh
@@ -272,7 +267,6 @@ object fMain: TfMain
           object TabSheet2: TTabSheet
             Caption = #1041#1088#1072#1082'/'#1043#1086#1076#1077#1085
             ImageIndex = 1
-            ExplicitHeight = 654
             object imgStatus: TImage
               AlignWithMargins = True
               Left = 30
@@ -376,7 +370,6 @@ object fMain: TfMain
       BevelOuter = bvNone
       ShowCaption = False
       TabOrder = 1
-      ExplicitTop = 720
       object pnlHotKeys: TPanel
         Left = 0
         Top = 0
@@ -538,7 +531,6 @@ object fMain: TfMain
     Align = alLeft
     ShowCaption = False
     TabOrder = 3
-    ExplicitHeight = 795
     object ValueListEditor1: TValueListEditor
       AlignWithMargins = True
       Left = 4
@@ -789,7 +781,7 @@ object fMain: TfMain
         object btnShowWP: TButton
           AlignWithMargins = True
           Left = 3
-          Top = 34
+          Top = 3
           Width = 222
           Height = 25
           Align = alTop
@@ -806,7 +798,7 @@ object fMain: TfMain
         object btnShowNorms: TButton
           AlignWithMargins = True
           Left = 3
-          Top = 3
+          Top = 34
           Width = 222
           Height = 25
           Align = alTop
@@ -819,6 +811,7 @@ object fMain: TfMain
           ParentFont = False
           TabOrder = 1
           OnClick = btnShowNormsClick
+          ExplicitTop = 3
         end
       end
     end
