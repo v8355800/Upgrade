@@ -242,17 +242,24 @@ end;
 //------------------------------------------------------------------------------
 procedure TCommIO.writrele(a: Cardinal);
 begin
-	//
-	Control(PC6, False);
-	Control(PC8, False);
+	{ Отключаем все реле }
+	Control(PC6, True);
+	Control(PC8, True);
 
+  { Задаем первые 16 реле }
   Write(Lo(a));
   ControlStrobe(PC7);
+  { Задаем остальные 16 реле (на плате реализовано только 14) }
   Write(Hi(a));
   ControlStrobe(PC9);
 
-	Control(PC6, True);
-	Control(PC8, True);
+  { Если список реле пуст, то откл. все и выходим }
+  if a = 0 then
+    Exit;
+
+  { Включаем все реле }
+	Control(PC6, False);
+	Control(PC8, False);
 end;
 
 //------------------------------------------------------------------------------
