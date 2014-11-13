@@ -67,7 +67,7 @@ object Form1: TForm1
       Top = 18
       Width = 454
       Height = 114
-      ActivePage = TabSheet1
+      ActivePage = TabSheet15
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -79,6 +79,10 @@ object Form1: TForm1
       TabWidth = 30
       object TabSheet1: TTabSheet
         Caption = '1'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Label1: TLabel
           Left = 3
           Top = 30
@@ -789,10 +793,6 @@ object Form1: TForm1
       object TabSheet15: TTabSheet
         Caption = '15'
         ImageIndex = 14
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Label29: TLabel
           Left = 3
           Top = 30

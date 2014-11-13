@@ -10,14 +10,6 @@ uses
   JvToolEdit, Vcl.ComCtrls, JvExStdCtrls, JvGroupBox, uPlans;
 
 type
-//	TPlan = class
-//    Caption: String;
-//    WP: string;
-//    Norms: string;
-//    constructor Create;
-//  end;
-//  TPLans = TObjectList<TPlan>;
-
   TEditor = class(TObject)
   private
   	fPlans: TPlans;
@@ -27,10 +19,10 @@ type
 
     procedure EmptyList;
   protected
-  	procedure New;
+  	procedure New(const Sign: String);
     procedure Load(const FileName: String);
-    procedure Save(const FileName: String);
-
+    procedure Save;
+    procedure SaveAs(const FileName: String);
   public
     constructor Create;
     destructor Destroy; override;
@@ -213,12 +205,17 @@ begin
   	Exit;
 end;
 
-procedure TEditor.New;
+procedure TEditor.New(const Sign: String);
 begin
 	EmptyList;
 end;
 
-procedure TEditor.Save(const FileName: String);
+procedure TEditor.Save;
+begin
+//
+end;
+
+procedure TEditor.SaveAs(const FileName: String);
 var
   Archiver: TZipForge;
   Lines: TStringList;
@@ -267,8 +264,8 @@ end;
 //end;
 
 procedure TForm1.btnNewClick(Sender: TObject);
-//var
-//  S: String;
+var
+  Sign: String;
 //  i: Integer;
 begin
 //  S := TFile.ReadAllText('uMain.dfm');
@@ -280,8 +277,12 @@ begin
 //      'object edtP'+IntToStr(i+1)+'_WP: TJvFilenameEdit', [rfReplaceAll]);
 //  end;
 //  TFile.WriteAllText('uMain.dfm.new', S);
-  Editor.New;
-  PlansChange;
+	Sign := InputBox('Новый файл', 'Подпись тестера', '');
+  if Sign <> '' then
+  begin
+	  Editor.New(Sign);
+	  PlansChange;
+  end;
 end;
 
 procedure TForm1.btnOpenClick(Sender: TObject);
@@ -305,7 +306,7 @@ begin
   Dlg.Filter := 'Файлы РП (*.dat)|*.dat|Все файлы (*.*)|*.*';
   Dlg.DefaultExt := 'dat';
   if Dlg.Execute then
-    Editor.Save(Dlg.FileName);
+    Editor.SaveAs(Dlg.FileName);
   Dlg.Free;
 end;
 
@@ -333,8 +334,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
 	Editor := TEditor.Create;
-  Editor.New;
-  PlansChange;
+  btnNew.Click;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
