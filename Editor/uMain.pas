@@ -7,7 +7,9 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, JvExMask,
-  JvToolEdit, Vcl.ComCtrls, JvExStdCtrls, JvGroupBox, uPlans;
+  JvToolEdit, Vcl.ComCtrls, JvExStdCtrls, JvGroupBox, uPlans, Vcl.ToolWin,
+  Vcl.ActnMan, Vcl.ActnCtrls, AdvMemo, AdvmPS, Vcl.ActnMenus,
+  Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.StdActns;
 
 type
   TEditor = class(TObject)
@@ -34,101 +36,21 @@ type
     GroupBox2: TGroupBox;
     mmoInfo: TMemo;
     GroupBox3: TGroupBox;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
-    TabSheet4: TTabSheet;
-    TabSheet5: TTabSheet;
-    TabSheet6: TTabSheet;
-    TabSheet7: TTabSheet;
-    TabSheet8: TTabSheet;
-    TabSheet9: TTabSheet;
-    TabSheet10: TTabSheet;
-    TabSheet11: TTabSheet;
-    TabSheet12: TTabSheet;
-    TabSheet13: TTabSheet;
-    TabSheet14: TTabSheet;
-    TabSheet15: TTabSheet;
-    edtP1_Title: TEdit;
-    edtP2_Title: TEdit;
-    edtP3_Title: TEdit;
-    edtP4_Title: TEdit;
-    edtP5_Title: TEdit;
-    edtP6_Title: TEdit;
-    edtP7_Title: TEdit;
-    edtP8_Title: TEdit;
-    edtP9_Title: TEdit;
-    edtP10_Title: TEdit;
-    edtP11_Title: TEdit;
-    edtP12_Title: TEdit;
-    edtP13_Title: TEdit;
-    edtP14_Title: TEdit;
-    edtP15_Title: TEdit;
-    edtP1_WP: TJvFilenameEdit;
-    edtP2_WP: TJvFilenameEdit;
-    edtP3_WP: TJvFilenameEdit;
-    edtP4_WP: TJvFilenameEdit;
-    edtP5_WP: TJvFilenameEdit;
-    edtP6_WP: TJvFilenameEdit;
-    edtP7_WP: TJvFilenameEdit;
-    edtP8_WP: TJvFilenameEdit;
-    edtP9_WP: TJvFilenameEdit;
-    edtP10_WP: TJvFilenameEdit;
-    edtP11_WP: TJvFilenameEdit;
-    edtP12_WP: TJvFilenameEdit;
-    edtP13_WP: TJvFilenameEdit;
-    edtP14_WP: TJvFilenameEdit;
-    edtP15_WP: TJvFilenameEdit;
-    edtP1_Norms: TJvFilenameEdit;
-    edtP2_Norms: TJvFilenameEdit;
-    edtP3_Norms: TJvFilenameEdit;
-    edtP4_Norms: TJvFilenameEdit;
-    edtP5_Norms: TJvFilenameEdit;
-    edtP6_Norms: TJvFilenameEdit;
-    edtP7_Norms: TJvFilenameEdit;
-    edtP8_Norms: TJvFilenameEdit;
-    edtP9_Norms: TJvFilenameEdit;
-    edtP10_Norms: TJvFilenameEdit;
-    edtP11_Norms: TJvFilenameEdit;
-    edtP12_Norms: TJvFilenameEdit;
-    edtP13_Norms: TJvFilenameEdit;
-    edtP14_Norms: TJvFilenameEdit;
-    edtP15_Norms: TJvFilenameEdit;
-    Label1: TLabel;
-    Label2: TLabel;
-    btnSave: TButton;
-    btnExit: TButton;
-    btnNew: TButton;
-    btnOpen: TButton;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
-    Label22: TLabel;
-    Label23: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    Label26: TLabel;
-    Label27: TLabel;
-    Label28: TLabel;
-    Label29: TLabel;
-    Label30: TLabel;
+    lbPlans: TListBox;
+    ActionToolBar1: TActionToolBar;
+    GroupBox1: TGroupBox;
+    pcPlan: TPageControl;
+    pageProgram: TTabSheet;
+    pageNorms: TTabSheet;
+    lbLog: TListBox;
+    mmoProgram: TAdvMemo;
+    AdvPascalMemoStyler: TAdvPascalMemoStyler;
+    mmoNorms: TMemo;
+    ActionManager: TActionManager;
+    ActionMainMenuBar1: TActionMainMenuBar;
+    FileOpen1: TFileOpen;
+    FileSaveAs1: TFileSaveAs;
+    FileExit1: TFileExit;
     procedure btnExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -333,13 +255,13 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-	Editor := TEditor.Create;
-  btnNew.Click;
+//	Editor := TEditor.Create;
+//  btnNew.Click;
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
-	Editor.Free;
+//	Editor.Free;
 end;
 
 procedure TForm1.mmoInfoChange(Sender: TObject);
