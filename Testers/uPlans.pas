@@ -24,13 +24,14 @@ type
   public
     function IsValidWPFile(const FileName, FileSignature: String): Boolean;
     function LoadFromFile(const FileName: String): Boolean;
+    procedure SaveToFile(const FileName, FileSignature: String);
     procedure Fill(Items: TStrings);
 
     property Info: string read fInfo write fInfo;
   end;
 
-var
-  Plans: TPlans;
+//var
+//  Plans: TPlans;
 
 implementation
 
@@ -109,7 +110,7 @@ begin
     Archiver.FileName := FileName;
     Archiver.OpenArchive;
     { Описание РП }
-    Archiver. ExtractToString('INFO.TXT', fInfo);
+    Archiver.ExtractToString('INFO.TXT', fInfo);
 
     { Информация о планах классификации }
     Archiver.ExtractToString('PLANS.TXT', S);
@@ -123,7 +124,7 @@ begin
         Archiver.ExtractToString(SplitLine[1] + '.pas', S1);                        // Рабочая программа
         Archiver.ExtractToString(SplitLine[2] + '.nrm', S2);                        // Нормы
 
-        Plans.Add( TPlan.Create(SplitLine[0], S1, S2) );
+        Self.Add( TPlan.Create(SplitLine[0], S1, S2) );
       except
         {$IFDEF CONSOLE}
           writeln('Ошибка в плане: "', SplitLine[0], '"!');
@@ -145,6 +146,45 @@ begin
         ShowMessage('Error: ' + E.Message);
       {$ENDIF}      
       Result := False;
+    end;
+  end;
+  Archiver.Free;
+end;
+
+procedure TPlans.SaveToFile(const FileName, FileSignature: String);
+var
+  Archiver: TZipForge;
+  Lines: TStringList;
+  Plan: TPlan;
+  Index: Integer;
+begin
+	Archiver := TZipForge.Create(nil);
+  try
+    Archiver.Password := Pass;
+    Archiver.FileName := FileName;
+    Archiver.OpenArchive(fmCreate);
+
+    { Описание РП }
+    Archiver.AddFromString('INFO.TXT', fInfo);
+    { Информация о планах классификации }
+    Lines := TStringList.Create;
+//    Lines.Text := S;
+    for Plan in Self do
+    begin
+      Index := Self.IndexOf(Plan) + 1;
+      Lines.Add( Format('%s'#9'PLAN%.2d'#9'PLAN%.2d', [Plan.Caption, Index, Index]) );
+      Archiver.AddFromString( Format('PLAN%.2d.PAS', [Index]), Plan.WPFile );
+      Archiver.AddFromString( Format('PLAN%.2d.NRM', [Index]), Plan.NormFile );
+    end;
+    Archiver.AddFromString('PLANS.TXT', Lines.Text);
+    Archiver.AddFromString(FileSignature, '');
+    Lines.Free;
+
+	  Archiver.CloseArchive;
+  except
+    on E: Exception do
+    begin
+        ShowMessage('Error: ' + E.Message);
     end;
   end;
   Archiver.Free;

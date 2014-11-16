@@ -1,44 +1,25 @@
 unit uMain;
 
-{$DEFINE INEJ}
+//{$DEFINE INEJ}
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, JvExMask,
-  JvToolEdit, Vcl.ComCtrls, JvExStdCtrls, JvGroupBox, uPlans, Vcl.ToolWin,
+  JvToolEdit, Vcl.ComCtrls, JvExStdCtrls, JvGroupBox, Vcl.ToolWin,
   Vcl.ActnMan, Vcl.ActnCtrls, AdvMemo, AdvmPS, Vcl.ActnMenus,
-  Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.StdActns;
+  Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.StdActns,
+  Vcl.ImgList, Vcl.ExtCtrls, JvComponentBase, JvAppStorage, JvAppIniStorage,
+  JvFormPlacement;
 
 type
-  TEditor = class(TObject)
-  private
-  	fPlans: TPlans;
-    fInfo: String;
-    fFileName: string;
-    fSign: string;
-
-    procedure EmptyList;
-  protected
-  	procedure New(const Sign: String);
-    procedure Load(const FileName: String);
-    procedure Save;
-    procedure SaveAs(const FileName: String);
-  public
-    constructor Create;
-    destructor Destroy; override;
-
-  end;
-
-type
-  TForm1 = class(TForm)
-    GroupBox2: TGroupBox;
+  TfMain = class(TForm)
+    gbInfo: TGroupBox;
     mmoInfo: TMemo;
-    GroupBox3: TGroupBox;
+    gbPlans: TGroupBox;
     lbPlans: TListBox;
-    ActionToolBar1: TActionToolBar;
-    GroupBox1: TGroupBox;
+    gbPlan: TGroupBox;
     pcPlan: TPageControl;
     pageProgram: TTabSheet;
     pageNorms: TTabSheet;
@@ -46,240 +27,220 @@ type
     mmoProgram: TAdvMemo;
     AdvPascalMemoStyler: TAdvPascalMemoStyler;
     mmoNorms: TMemo;
+    ActionMainMenuBar: TActionMainMenuBar;
+    ImageList: TImageList;
     ActionManager: TActionManager;
-    ActionMainMenuBar1: TActionMainMenuBar;
-    FileOpen1: TFileOpen;
-    FileSaveAs1: TFileSaveAs;
-    FileExit1: TFileExit;
-    procedure btnExitClick(Sender: TObject);
+    AdvMemoUndo1: TAdvMemoUndo;
+    AdvMemoCut1: TAdvMemoCut;
+    AdvMemoCopy1: TAdvMemoCopy;
+    AdvMemoPaste1: TAdvMemoPaste;
+    AdvMemoDelete1: TAdvMemoDelete;
+    AdvMemoSelectAll1: TAdvMemoSelectAll;
+    FileNew: TAction;
+    FileOpen: TFileOpen;
+    FileSave: TAction;
+    FileSaveAs: TFileSaveAs;
+    FileExit: TFileExit;
+    SearchFind: TAction;
+    SearchReplace: TAction;
+    ProgramSyntaxCheck: TAction;
+    PlanAdd: TAction;
+    PlanDelete: TAction;
+    ActionToolBar2: TActionToolBar;
+    FindDialog: TAdvMemoFindDialog;
+    ReplaceDialog: TAdvMemoFindReplaceDialog;
+    edtPlanName: TEdit;
+    StatusBar: TStatusBar;
+    Splitter1: TSplitter;
+    Splitter2: TSplitter;
+    ActionToolBar1: TActionToolBar;
+    JvAppIniFileStorage: TJvAppIniFileStorage;
+    JvFormStorage: TJvFormStorage;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure btnNewClick(Sender: TObject);
-    procedure btnOpenClick(Sender: TObject);
-    procedure btnSaveClick(Sender: TObject);
     procedure mmoInfoChange(Sender: TObject);
-    procedure edtP_TitleChange(Sender: TObject);
-    procedure edtP_WPChange(Sender: TObject);
-    procedure edtP_NormsChange(Sender: TObject);
+    procedure lbPlansClick(Sender: TObject);
+    procedure SearchFindExecute(Sender: TObject);
+    procedure SearchReplaceExecute(Sender: TObject);
+    procedure FileOpenAccept(Sender: TObject);
+    procedure FileSaveAsAccept(Sender: TObject);
+    procedure edtPlanNameChange(Sender: TObject);
+    procedure mmoProgramChange(Sender: TObject);
+    procedure mmoNormsChange(Sender: TObject);
+    procedure PlanDeleteExecute(Sender: TObject);
+    procedure PlanAddExecute(Sender: TObject);
+    procedure ProgramSyntaxCheckExecute(Sender: TObject);
   private
     { Private declarations }
-    procedure PlansChange;
+		procedure FillList;
   public
     { Public declarations }
   end;
 
 var
-  Form1: TForm1;
-  Editor: TEditor;
+  fMain: TfMain;
 
 implementation
 
 {$R *.dfm}
 
 uses
-  System.IOUtils,
-  ZipForge;
+	TESTER_BASE, TESTER_INEJ, TESTER_ISTINA,
+  uPlans,
+  uEditor;
 
-procedure TForm1.btnExitClick(Sender: TObject);
-begin
-	Close;
-end;
-
-{ TEditor }
-
-constructor TEditor.Create;
-begin
-  {$IFDEF INEJ}
-  fSign := 'INEJ';
-  {$ENDIF}
-  {$IFDEF ISTINA}
-  fSign := 'ISTINA';
-  {$ENDIF}
-
-  fPlans := TPlans.Create; //TObjectList<TPlan>.Create();
-	EmptyList;
-end;
-
-destructor TEditor.Destroy;
-begin
-
-	fPlans.Free;
-  inherited;
-end;
-
-procedure TEditor.EmptyList;
 var
-	i: Byte;
-begin
-	fInfo := '';
-	fFileName := 'Безымянный';
+  Editor: TEditor;
 
-  fPlans.Clear;
-  for i := 1 to 15 do
+procedure TfMain.edtPlanNameChange(Sender: TObject);
+begin
+	if 	Editor.CurrentPlan <> nil then
   begin
-    fPlans.Add(TPlan.Create('План №' + IntToStr(i), '', ''));
+		Editor.CurrentPlan.Caption := (Sender as TEdit).Text;
+    lbPlans.Items[lbPlans.ItemIndex] := (Sender as TEdit).Text;
   end;
 end;
 
-procedure TEditor.Load(const FileName: String);
+procedure TfMain.FileOpenAccept(Sender: TObject);
 begin
-	if not FileExists(FileName) then
-  	Exit;
-end;
-
-procedure TEditor.New(const Sign: String);
-begin
-	EmptyList;
-end;
-
-procedure TEditor.Save;
-begin
-//
-end;
-
-procedure TEditor.SaveAs(const FileName: String);
-var
-  Archiver: TZipForge;
-  Lines: TStringList;
-  Plan: TPlan;
-  Index: Integer;
-begin
-	Archiver := TZipForge.Create(nil);
-  try
-    Archiver.Password := Pass;
-    Archiver.FileName := FileName;
-    Archiver.OpenArchive(fmCreate);
-
-    { Описание РП }
-    Archiver.AddFromString('INFO.TXT', Editor.fInfo);
-    { Информация о планах классификации }
-    Lines := TStringList.Create;
-//    Lines.Text := S;
-    for Plan in Editor.fPlans do
-    begin
-      Index := Editor.fPlans.IndexOf(Plan) + 1;
-      Lines.Add( Format('%s'#9'PLAN%.2d'#9'PLAN%.2d', [Plan.Caption, Index, Index]) );
-      Archiver.AddFromString( Format('PLAN%.2d.PAS', [Index]), Plan.WPFile );
-      Archiver.AddFromString( Format('PLAN%.2d.NRM', [Index]), Plan.NormFile );
-    end;
-    Archiver.AddFromString('PLANS.TXT', Lines.Text);
-    Archiver.AddFromString(fSign, '');
-    Lines.Free;
-
-	  Archiver.CloseArchive;
-  except
-    on E: Exception do
-    begin
-        ShowMessage('Error: ' + E.Message);
-    end;
-  end;
-  Archiver.Free;
-end;
-
-//{ TPlan }
-//
-//constructor TPlan.Create;
-//begin
-//	Caption := '';
-//	WP := '';
-//  Norms := '';
-//end;
-
-procedure TForm1.btnNewClick(Sender: TObject);
-var
-  Sign: String;
-//  i: Integer;
-begin
-//  S := TFile.ReadAllText('uMain.dfm');
-//  for i:= 1 to 15 do
-//  begin
-//    S := StringReplace(S, 'object JvFilenameEdit'+IntToStr(i*2-1)+': TJvFilenameEdit',
-//      'object edtP'+IntToStr(i+1)+'_Norms: TJvFilenameEdit', [rfReplaceAll]);
-//    S := StringReplace(S, 'object JvFilenameEdit'+IntToStr(i*2)+': TJvFilenameEdit',
-//      'object edtP'+IntToStr(i+1)+'_WP: TJvFilenameEdit', [rfReplaceAll]);
-//  end;
-//  TFile.WriteAllText('uMain.dfm.new', S);
-	Sign := InputBox('Новый файл', 'Подпись тестера', '');
-  if Sign <> '' then
+  if Editor.Load(TFileOpen(Sender).Dialog.FileName) then
   begin
-	  Editor.New(Sign);
-	  PlansChange;
+    Self.Caption := 'Редактор рабочих программ - ' + Editor.FileName;
+    mmoInfo.Text := Editor.Plans.Info;
+    FillList;
+
+    lbPlans.ItemIndex := 0;
+    lbPlansClick(lbPlans);
   end;
 end;
 
-procedure TForm1.btnOpenClick(Sender: TObject);
-var
-  Dlg: TOpenDialog;
+procedure TfMain.FileSaveAsAccept(Sender: TObject);
 begin
-  Dlg := TOpenDialog.Create(Self);
-  Dlg.Filter := 'Файлы РП (*.dat)|*.dat|Все файлы (*.*)|*.*';
-  if Dlg.Execute then
-    if Editor.fPlans.IsValidWPFile(Dlg.FileName, Editor.fSign) then
-      if Editor.fPlans.LoadFromFile(Dlg.FileName) then
-        PlansChange;
-  Dlg.Free;
+	Editor.SaveAs(TFileSaveAs(Sender).Dialog.FileName);
 end;
 
-procedure TForm1.btnSaveClick(Sender: TObject);
-var
-  Dlg: TSaveDialog;
-begin
-  Dlg := TSaveDialog.Create(Self);
-  Dlg.Filter := 'Файлы РП (*.dat)|*.dat|Все файлы (*.*)|*.*';
-  Dlg.DefaultExt := 'dat';
-  if Dlg.Execute then
-    Editor.SaveAs(Dlg.FileName);
-  Dlg.Free;
-end;
-
-procedure TForm1.edtP_NormsChange(Sender: TObject);
-begin
-  if FileExists( TJvFilenameEdit(Sender).FileName ) then
-    Editor.fPlans[TEdit(Sender).Tag-1].NormFile := TFile.ReadAllText( TJvFilenameEdit(Sender).FileName )
-  else
-    Editor.fPlans[TEdit(Sender).Tag-1].NormFile := '';
-end;
-
-procedure TForm1.edtP_TitleChange(Sender: TObject);
-begin
-  Editor.fPlans[TEdit(Sender).Tag-1].Caption := TEdit(Sender).Text;
-end;
-
-procedure TForm1.edtP_WPChange(Sender: TObject);
-begin
-  if FileExists( TJvFilenameEdit(Sender).FileName ) then
-    Editor.fPlans[TEdit(Sender).Tag-1].WPFile := TFile.ReadAllText( TJvFilenameEdit(Sender).FileName )
-  else
-    Editor.fPlans[TEdit(Sender).Tag-1].WPFile := '';
-end;
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-//	Editor := TEditor.Create;
-//  btnNew.Click;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-//	Editor.Free;
-end;
-
-procedure TForm1.mmoInfoChange(Sender: TObject);
-begin
-  Editor.fInfo := TMemo(Sender).Text;
-end;
-
-procedure TForm1.PlansChange;
+procedure TfMain.FillList;
 var
   i: Integer;
 begin
-  Self.Caption := 'Тестер "ИСТИНА" - ' + Editor.fFileName;
-  mmoInfo.Text := Editor.fInfo;
-  for i := 1 to Editor.fPlans.Count do
+  lbPlans.Items.Clear;
+  for i := 1 to Editor.Plans.Count do
+    lbPlans.Items.Add(Editor.Plans[i-1].Caption);
+end;
+
+procedure TfMain.SearchFindExecute(Sender: TObject);
+begin
+  FindDialog.Execute;
+end;
+
+procedure TfMain.SearchReplaceExecute(Sender: TObject);
+begin
+  ReplaceDialog.Execute;
+end;
+
+procedure TfMain.FormCreate(Sender: TObject);
+begin
+	Editor := TEditor.Create;
+end;
+
+procedure TfMain.FormDestroy(Sender: TObject);
+begin
+	Editor.Free;
+end;
+
+procedure TfMain.lbPlansClick(Sender: TObject);
+const
+	gbPlanCaption = 'План №%d - "%s"';
+var
+	Index: Integer;
+begin
+//	{ Save changes }
+//  if Editor.CurrentPlan <> nil then
+//    with Editor.CurrentPlan do
+//    begin
+//      Caption  := edtPlanName.Text;
+//      WPFile   := mmoProgram.Lines.Text;
+//      NormFile := mmoNorms.Lines.Text;
+//    end;
+	Index := TListBox(Sender).ItemIndex;
+  if Index = -1 then
+  	Exit;
+
+  Editor.SetActivePlan(TListBox(Sender).ItemIndex);
+	gbPlan.Caption        := Format(gbPlanCaption, [Index + 1, Editor.CurrentPlan.Caption]);
+  edtPlanName.Text      := Editor.CurrentPlan.Caption;
+  mmoProgram.Lines.Text := Editor.CurrentPlan.WPFile;
+  mmoNorms.Lines.Text   := Editor.CurrentPlan.NormFile;
+end;
+
+procedure TfMain.mmoInfoChange(Sender: TObject);
+begin
+	if 	Editor.CurrentPlan <> nil then
+		Editor.Plans.Info := (Sender as TMemo).Lines.Text;
+end;
+
+procedure TfMain.mmoNormsChange(Sender: TObject);
+begin
+	if 	Editor.CurrentPlan <> nil then
+		Editor.CurrentPlan.NormFile := (Sender as TMemo).Lines.Text;
+end;
+
+procedure TfMain.mmoProgramChange(Sender: TObject);
+begin
+	if 	Editor.CurrentPlan <> nil then
+		Editor.CurrentPlan.WPFile := (Sender as TAdvMemo).Lines.Text;
+end;
+
+procedure TfMain.PlanAddExecute(Sender: TObject);
+begin
+	Editor.Plans.Add(TPlan.Create('Новый', '', ''));
+  lbPlans.Items.Add('Новый');
+end;
+
+procedure TfMain.PlanDeleteExecute(Sender: TObject);
+var
+	Index: integer;
+begin
+	if (Editor.CurrentPlan <> nil) and (Editor.Plans.Count > 1) then
   begin
-    TEdit(FindComponent('edtP'+IntToStr(i)+'_Title')).Text := Editor.fPlans[i-1].Caption;
-    TJvFilenameEdit(FindComponent('edtP'+IntToStr(i)+'_WP')).FileName := Editor.fPlans[i-1].WPFile;
-    TJvFilenameEdit(FindComponent('edtP'+IntToStr(i)+'_Norms')).FileName := Editor.fPlans[i-1].NormFile;
+		Editor.Plans.Delete(Editor.Plans.IndexOf(Editor.CurrentPlan));
+    Index := lbPlans.ItemIndex;
+    lbPlans.DeleteSelected;
+//    FillList;
+		if Index <> 0 then
+    	Index := Index - 1;
+
+	 	lbPlans.ItemIndex := Index;
+    lbPlansClick(lbPlans);
+  end;
+end;
+
+procedure TfMain.ProgramSyntaxCheckExecute(Sender: TObject);
+var
+	Tester: TCustomTester;
+begin
+	if UpperCase(Editor.Sign) = 'INEJ' then
+  begin
+		Tester := TInej.Create(nil);
+    Tester.InitScriptEngine(@Tester);
+		Tester.GetWPFromString(mmoProgram.Lines.Text);
+//    Tester.GetWPFromFile('MZU.PAS');
+    Tester.CompileWP;
+    Tester.Free;
+  end;
+
+	if UpperCase(Editor.Sign) = 'ISTINA' then
+  begin
+		try
+			Tester := TIstina.Create(nil);
+		except
+			;
+    end;
+    Tester.InitScriptEngine(@Tester);
+		Tester.GetWPFromString(mmoProgram.Lines.Text);
+//    Tester.GetWPFromFile('SD3.PAS');
+    Tester.CompileWP;
+    Tester.Free;
   end;
 end;
 
