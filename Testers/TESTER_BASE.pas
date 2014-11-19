@@ -160,7 +160,7 @@ begin
   fCompiled := fPaxCompiler.Compile(fPaxProgram);
   if not fCompiled then
     for I := 0 to fPaxCompiler.ErrorCount - 1 do
-      DoError(21, Format('[Line:%d; Pos:%d] %s', [fPaxCompiler.ErrorLineNumber[I]+1, fPaxCompiler.ErrorLinePos[I]+1, fPaxCompiler.ErrorMessage[I]]));
+      DoError(21, Format('[Line:%d; Col:%d] %s', [fPaxCompiler.ErrorLineNumber[I]+1, fPaxCompiler.ErrorLinePos[I]+1, fPaxCompiler.ErrorMessage[I]]));
 
   Result := fCompiled;
 end;

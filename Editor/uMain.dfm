@@ -271,6 +271,7 @@ object fMain: TfMain
           UseStyler = True
           Version = '3.1.6.0'
           WordWrap = wwNone
+          OnCursorChange = mmoProgramCursorChange
         end
         object edtPlanName: TEdit
           AlignWithMargins = True
@@ -280,6 +281,7 @@ object fMain: TfMain
           Height = 21
           Align = alTop
           TabOrder = 2
+          OnChange = edtPlanNameChange
         end
       end
       object pageNorms: TTabSheet
@@ -324,7 +326,14 @@ object fMain: TfMain
     Top = 496
     Width = 793
     Height = 19
-    Panels = <>
+    Panels = <
+      item
+        Alignment = taCenter
+        Width = 100
+      end
+      item
+        Width = 50
+      end>
   end
   object ActionToolBar1: TActionToolBar
     Left = 0
@@ -623,7 +632,7 @@ object fMain: TfMain
     Left = 736
     Top = 424
     Bitmap = {
-      494C010121003100280110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101210031002C0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000009000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000A8A8A80073737300553F2A00553F2A00553F2A00553F2A00553F2A00553F

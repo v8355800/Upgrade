@@ -71,6 +71,7 @@ type
     procedure PlanAddExecute(Sender: TObject);
     procedure ProgramSyntaxCheckExecute(Sender: TObject);
     procedure lbLogDblClick(Sender: TObject);
+    procedure mmoProgramCursorChange(Sender: TObject);
   private
     { Private declarations }
 		procedure FillList;
@@ -175,7 +176,7 @@ procedure TfMain.lbLogDblClick(Sender: TObject);
   var
     X: string;
   begin
-    X := RightStr(S,Length(S)-Pos('Pos:', S));
+    X := RightStr(S,Length(S)-Pos('Col:', S));
     X := Copy(X, 4, Pos(']', X)-4);
     Result := StrToInt(X);
   end;
@@ -230,6 +231,11 @@ procedure TfMain.mmoProgramChange(Sender: TObject);
 begin
 	if 	Editor.CurrentPlan <> nil then
 		Editor.CurrentPlan.WPFile := (Sender as TAdvMemo).Lines.Text;
+end;
+
+procedure TfMain.mmoProgramCursorChange(Sender: TObject);
+begin
+	StatusBar.Panels[0].Text := 'Line: '+  inttostr((Sender as TAdvMemo).CurY + 1) + '  Col: ' + inttostr((Sender as TAdvMemo).CurX + 1);
 end;
 
 procedure TfMain.OnErrorEvent(Sender: TObject; ErrorCode: Cardinal;
