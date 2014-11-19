@@ -25,7 +25,8 @@ uses
   IMP_TESTER_INEJ_GLOBAL in '..\Testers\Inej\Import\IMP_TESTER_INEJ_GLOBAL.PAS',
   IMPORT_Istina in '..\Testers\Istina\Import\IMPORT_Istina.pas',
   IMP_TESTER_ISTINA in '..\Testers\Istina\Import\IMP_TESTER_ISTINA.pas',
-  IMP_TESTER_ISTINA_GLOBAL in '..\Testers\Istina\Import\IMP_TESTER_ISTINA_GLOBAL.PAS';
+  IMP_TESTER_ISTINA_GLOBAL in '..\Testers\Istina\Import\IMP_TESTER_ISTINA_GLOBAL.PAS',
+  uPlans in '..\Testers\uPlans.pas';
 
 {$R *.res}
 

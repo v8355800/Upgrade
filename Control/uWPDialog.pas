@@ -63,6 +63,11 @@ uses
   uData,
   uMain;
 
+var
+  Plans: TPlans;
+
+
+
 procedure TfWPDialog.btnOKClick(Sender: TObject);
 begin
   if cmbPlans.ItemIndex = -1 then
