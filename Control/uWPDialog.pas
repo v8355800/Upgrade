@@ -118,10 +118,16 @@ begin
 end;
 
 procedure TfWPDialog.edtWPFileNameChange(Sender: TObject);
+var
+  fName: String;
 begin
-	if Plans.IsValidWPFile((Sender as TJvFilenameEdit).FileName, Tester.TesterSignature) then
+  fName := (Sender as TJvFilenameEdit).FileName;
+  if Trim(fName) = '' then
+    Exit;
+
+	if Plans.IsValidWPFile(fName, Tester.TesterSignature) then
   begin
-  	Plans.LoadFromFile((Sender as TJvFilenameEdit).FileName);
+  	Plans.LoadFromFile(fName);
     mmoInfo.Text := Plans.Info;
     Plans.Fill(cmbPlans.Items);
 
@@ -136,6 +142,9 @@ begin
   end
   else
   begin
+    MessageDlg('Файл ' + QuotedStr(fName) + ' не является РП для тестера ' + QuotedStr(Tester.TesterShortCaption),  mtWarning, [mbOK], 0);
+    edtWPFileName.Clear;
+//    (Sender as TJvFilenameEdit).FileName := '';
     mmoInfo.Clear;
     cmbPlans.Clear;
     cmbPlans.Enabled := False;
