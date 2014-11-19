@@ -1,6 +1,6 @@
 object fMain: TfMain
-  Left = -884
-  Top = 326
+  Left = -939
+  Top = 210
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1088#1072#1073#1086#1095#1080#1093' '#1087#1088#1086#1075#1088#1072#1084#1084
   ClientHeight = 515
   ClientWidth = 793
@@ -268,7 +268,7 @@ object fMain: TfMain
           UrlStyle.BkColor = clWhite
           UrlStyle.Style = [fsUnderline]
           UseStyler = True
-          Version = '3.1.6.0'
+          Version = '3.1.2.4'
           WordWrap = wwNone
         end
         object edtPlanName: TEdit
@@ -284,6 +284,10 @@ object fMain: TfMain
       object pageNorms: TTabSheet
         Caption = #1053#1086#1088#1084#1099
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object mmoNorms: TMemo
           AlignWithMargins = True
           Left = 3
@@ -622,7 +626,7 @@ object fMain: TfMain
     Left = 736
     Top = 424
     Bitmap = {
-      494C010121003100200110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010121003100240110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000009000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000A8A8A80073737300553F2A00553F2A00553F2A00553F2A00553F2A00553F

@@ -91,6 +91,8 @@ uses
 
 var
   Editor: TEditor;
+  Inej: TInej;
+  Istina: TIstina;
 
 procedure TfMain.edtPlanNameChange(Sender: TObject);
 begin
@@ -141,11 +143,17 @@ end;
 procedure TfMain.FormCreate(Sender: TObject);
 begin
 	Editor := TEditor.Create;
+  Inej   := TInej.Create(nil);
+  Istina := TIstina.Create(nil);
+  Inej.InitScriptEngine(@Inej);
+  Istina.InitScriptEngine(@Istina);
 end;
 
 procedure TfMain.FormDestroy(Sender: TObject);
 begin
 	Editor.Free;
+  Inej.Free;
+  Istina.Free;
 end;
 
 procedure TfMain.lbPlansClick(Sender: TObject);
@@ -216,31 +224,26 @@ begin
 end;
 
 procedure TfMain.ProgramSyntaxCheckExecute(Sender: TObject);
-var
-	Tester: TCustomTester;
+//var
+//	Tester: TCustomTester;
 begin
 	if UpperCase(Editor.Sign) = 'INEJ' then
   begin
-		Tester := TInej.Create(nil);
-    Tester.InitScriptEngine(@Tester);
-		Tester.GetWPFromString(mmoProgram.Lines.Text);
+//		Tester := TInej.Create(nil);
+//    Tester.InitScriptEngine(@Tester);
+		Inej.GetWPFromString(mmoProgram.Lines.Text);
 //    Tester.GetWPFromFile('MZU.PAS');
-    Tester.CompileWP;
-    Tester.Free;
+    Inej.CompileWP;
+//    Tester.Free;
   end;
 
 	if UpperCase(Editor.Sign) = 'ISTINA' then
   begin
-		try
-			Tester := TIstina.Create(nil);
-		except
-			;
-    end;
-    Tester.InitScriptEngine(@Tester);
-		Tester.GetWPFromString(mmoProgram.Lines.Text);
+//    Tester.InitScriptEngine(@Tester);
+		Istina.GetWPFromString(mmoProgram.Lines.Text);
 //    Tester.GetWPFromFile('SD3.PAS');
-    Tester.CompileWP;
-    Tester.Free;
+    Istina.CompileWP;
+//    Tester.Free;
   end;
 end;
 
