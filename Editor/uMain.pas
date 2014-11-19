@@ -73,6 +73,7 @@ type
   private
     { Private declarations }
 		procedure FillList;
+    procedure OnErrorEvent(Sender: TObject; ErrorCode: Cardinal;  ErrorMsg: string);
   public
     { Public declarations }
   end;
@@ -147,6 +148,9 @@ begin
   Istina := TIstina.Create(nil);
   Inej.InitScriptEngine(@Inej);
   Istina.InitScriptEngine(@Istina);
+
+  Inej.OnError := OnErrorEvent;
+  Istina.OnError := OnErrorEvent;
 end;
 
 procedure TfMain.FormDestroy(Sender: TObject);
@@ -199,6 +203,12 @@ begin
 		Editor.CurrentPlan.WPFile := (Sender as TAdvMemo).Lines.Text;
 end;
 
+procedure TfMain.OnErrorEvent(Sender: TObject; ErrorCode: Cardinal;
+  ErrorMsg: string);
+begin
+  lbLog.Items.Add(ErrorMsg);
+end;
+
 procedure TfMain.PlanAddExecute(Sender: TObject);
 begin
 	Editor.Plans.Add(TPlan.Create('Новый', '', ''));
@@ -214,7 +224,7 @@ begin
 		Editor.Plans.Delete(Editor.Plans.IndexOf(Editor.CurrentPlan));
     Index := lbPlans.ItemIndex;
     lbPlans.DeleteSelected;
-//    FillList;
+
 		if Index <> 0 then
     	Index := Index - 1;
 
@@ -224,26 +234,18 @@ begin
 end;
 
 procedure TfMain.ProgramSyntaxCheckExecute(Sender: TObject);
-//var
-//	Tester: TCustomTester;
 begin
+  lbLog.Clear;
 	if UpperCase(Editor.Sign) = 'INEJ' then
   begin
-//		Tester := TInej.Create(nil);
-//    Tester.InitScriptEngine(@Tester);
 		Inej.GetWPFromString(mmoProgram.Lines.Text);
-//    Tester.GetWPFromFile('MZU.PAS');
     Inej.CompileWP;
-//    Tester.Free;
   end;
 
 	if UpperCase(Editor.Sign) = 'ISTINA' then
   begin
-//    Tester.InitScriptEngine(@Tester);
 		Istina.GetWPFromString(mmoProgram.Lines.Text);
-//    Tester.GetWPFromFile('SD3.PAS');
     Istina.CompileWP;
-//    Tester.Free;
   end;
 end;
 
