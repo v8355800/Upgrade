@@ -70,6 +70,7 @@ type
     procedure PlanDeleteExecute(Sender: TObject);
     procedure PlanAddExecute(Sender: TObject);
     procedure ProgramSyntaxCheckExecute(Sender: TObject);
+    procedure lbLogDblClick(Sender: TObject);
   private
     { Private declarations }
 		procedure FillList;
@@ -86,6 +87,7 @@ implementation
 {$R *.dfm}
 
 uses
+	System.AnsiStrings,
 	TESTER_BASE, TESTER_INEJ, TESTER_ISTINA,
   uPlans,
   uEditor;
@@ -158,6 +160,33 @@ begin
 	Editor.Free;
   Inej.Free;
   Istina.Free;
+end;
+
+procedure TfMain.lbLogDblClick(Sender: TObject);
+  function GetLineNumber(const S: String): Integer;
+  var
+    X: string;
+  begin
+    X := Copy(S, 7, Pos(';', S)-7);
+    Result := StrToInt(X);
+  end;
+
+  function GetLinePos(const S: String): Integer;
+  var
+    X: string;
+  begin
+    X := RightStr(S,Length(S)-Pos('Pos:', S));
+    X := Copy(X, 4, Pos(']', X)-4);
+    Result := StrToInt(X);
+  end;
+begin
+  if TListBox(Sender).ItemIndex = -1 then
+    Exit;
+
+  mmoProgram.CurY := GetLineNumber(TListBox(Sender).Items[TListBox(Sender).ItemIndex])-1;
+  mmoProgram.CurX := GetLinePos(TListBox(Sender).Items[TListBox(Sender).ItemIndex])-1;
+  mmoProgram.SetFocus;
+
 end;
 
 procedure TfMain.lbPlansClick(Sender: TObject);

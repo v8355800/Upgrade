@@ -154,6 +154,7 @@ object fMain: TfMain
           Align = alBottom
           ItemHeight = 13
           TabOrder = 0
+          OnDblClick = lbLogDblClick
         end
         object mmoProgram: TAdvMemo
           AlignWithMargins = True
@@ -268,7 +269,7 @@ object fMain: TfMain
           UrlStyle.BkColor = clWhite
           UrlStyle.Style = [fsUnderline]
           UseStyler = True
-          Version = '3.1.2.4'
+          Version = '3.1.6.0'
           WordWrap = wwNone
         end
         object edtPlanName: TEdit
@@ -284,10 +285,6 @@ object fMain: TfMain
       object pageNorms: TTabSheet
         Caption = #1053#1086#1088#1084#1099
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object mmoNorms: TMemo
           AlignWithMargins = True
           Left = 3
@@ -626,7 +623,7 @@ object fMain: TfMain
     Left = 736
     Top = 424
     Bitmap = {
-      494C010121003100240110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010121003100280110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000009000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000A8A8A80073737300553F2A00553F2A00553F2A00553F2A00553F2A00553F
@@ -1946,6 +1943,10 @@ object fMain: TfMain
             Action = FileOpen
             ImageIndex = 21
             ShortCut = 16463
+          end
+          item
+            Action = ProgramSyntaxCheck
+            ImageIndex = 31
           end>
         ActionBar = ActionToolBar1
       end>
