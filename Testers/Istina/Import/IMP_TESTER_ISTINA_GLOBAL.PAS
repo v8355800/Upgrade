@@ -1,29 +1,17 @@
 //****************************************************************************
 // Unit Name: TESTER_ISTINA_GLOBAL
 //****************************************************************************
-// This file is auto generated with paxCompiler engine.                       
-// Import mode: global import.
-// ---------------------------------------------------------------------------
-// Site: http://www.paxcompiler.com                                           
-// Author: Alexander Baranovsky (paxscript@gmail.com)                         
-// ---------------------------------------------------------------------------
-// Copyright (c) Alexander Baranovsky, 2014.                                  
-// ---------------------------------------------------------------------------
-// Portion copyright Full Circle Development Ltd.                             
-// Content: initial design of importer.                                       
-// ---------------------------------------------------------------------------
-// Code Version: 1.1                                                   
-//****************************************************************************
 
 unit IMP_TESTER_ISTINA_GLOBAL;
+
 interface
 
+uses
+  PaxCompiler;
 
-function Register_TESTER_ISTINA_GLOBAL: Integer;
-
+function Register_TESTER_ISTINA_GLOBAL(compiler: TPaxCompiler): Integer;
 
 implementation
-
 
 uses
   PAXCOMP_STDLIB,
@@ -43,143 +31,143 @@ begin
 end;
 
 
-//function RegisterConstant__MADC(H: Integer): Integer;
+//function RegisterConstant__MADC(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MADC', MADC);
+//  result := compiler.RegisterConstant(H, 'MADC', MADC);
 //end;
 
 
-//function RegisterConstant__MHALT(H: Integer): Integer;
+//function RegisterConstant__MHALT(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MHALT', MHALT);
+//  result := compiler.RegisterConstant(H, 'MHALT', MHALT);
 //end;
 
 
-//function RegisterConstant__MLOOP(H: Integer): Integer;
+//function RegisterConstant__MLOOP(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MLOOP', MLOOP);
+//  result := compiler.RegisterConstant(H, 'MLOOP', MLOOP);
 //end;
 
 
-//function RegisterConstant__MSINCH(H: Integer): Integer;
+//function RegisterConstant__MSINCH(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MSINCH', MSINCH);
+//  result := compiler.RegisterConstant(H, 'MSINCH', MSINCH);
 //end;
 
 
-//function RegisterConstant__MSTAT(H: Integer): Integer;
+//function RegisterConstant__MSTAT(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MSTAT', MSTAT);
+//  result := compiler.RegisterConstant(H, 'MSTAT', MSTAT);
 //end;
 
 
-function RegisterConstant__MAXGROUP(H: Integer): Integer;
+function RegisterConstant__MAXGROUP(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterConstant(H, 'MAXGROUP', MAXGROUP);
+  result := compiler.RegisterConstant(H, 'MAXGROUP', MAXGROUP);
 end;
 
 
-//function RegisterConstant__MAXPOINT(H: Integer): Integer;
+//function RegisterConstant__MAXPOINT(H: Integer; compiler: TPaxCompiler): Integer;
 //begin
-//  result := RegisterConstant(H, 'MAXPOINT', MAXPOINT);
+//  result := compiler.RegisterConstant(H, 'MAXPOINT', MAXPOINT);
 //end;
 
 
-function RegisterConstant__OPEN(H: Integer): Integer;
+function RegisterConstant__OPEN(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterConstant(H, 'OPEN', OPEN);
+  result := compiler.RegisterConstant(H, 'OPEN', OPEN);
 end;
 
 
-function RegisterConstant__maxtest(H: Integer): Integer;
+function RegisterConstant__maxtest(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterConstant(H, 'maxtest', maxtest);
+  result := compiler.RegisterConstant(H, 'maxtest', maxtest);
 end;
 
 
-function RegisterEnumType_EDIZM(H: Integer): Integer;
+function RegisterEnumType_EDIZM(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterEnumType(H, 'EDIZM');
-  RegisterEnumValue(result, 'V', 0);
-  RegisterEnumValue(result, 'NA', 1);
-  RegisterEnumValue(result, 'MKA', 2);
-  RegisterEnumValue(result, 'MA', 3);
-  RegisterEnumValue(result, 'MS', 4);
-  RegisterEnumValue(result, 'S', 5);
-  RegisterEnumValue(result, 'OM', 6);
-  RegisterEnumValue(result, 'KOM', 7);
-  RegisterEnumValue(result, 'MOM', 8);
+  result := compiler.RegisterEnumType(H, 'EDIZM');
+  compiler.RegisterEnumValue(result, 'V', 0);
+  compiler.RegisterEnumValue(result, 'NA', 1);
+  compiler.RegisterEnumValue(result, 'MKA', 2);
+  compiler.RegisterEnumValue(result, 'MA', 3);
+  compiler.RegisterEnumValue(result, 'MS', 4);
+  compiler.RegisterEnumValue(result, 'S', 5);
+  compiler.RegisterEnumValue(result, 'OM', 6);
+  compiler.RegisterEnumValue(result, 'KOM', 7);
+  compiler.RegisterEnumValue(result, 'MOM', 8);
 end;
 
 
-function RegisterShortStringType_IMYA(H: Integer): Integer;
+function RegisterShortStringType_IMYA(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-RegisterShortStringType(H, 'IMYA', 4);
+  compiler.RegisterShortStringType(H, 'IMYA', 4);
 end;
 
 
-function RegisterEnumType_ITOGO(H: Integer): Integer;
+function RegisterEnumType_ITOGO(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterEnumType(H, 'ITOGO');
-  RegisterEnumValue(result, 'PASS', 0);
-  RegisterEnumValue(result, 'FAIL', 1);
+  result := compiler.RegisterEnumType(H, 'ITOGO');
+  compiler.RegisterEnumValue(result, 'PASS', 0);
+  compiler.RegisterEnumValue(result, 'FAIL', 1);
 end;
 
 
-function RegisterSubrangeType_NUMBER(H: Integer): Integer;
+function RegisterSubrangeType_NUMBER(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'NUMBER =  1 .. 16;');
+  result := compiler.RegisterTypeDeclaration(H, 'NUMBER =  1 .. 16;');
 end;
 
 
-function RegisterSetType_PINS(H: Integer): Integer;
+function RegisterSetType_PINS(H: Integer; compiler: TPaxCompiler): Integer;
 var T: Integer;
 begin
-  T := LookupTypeId('NUMBER');
-  result := RegisterSetType(H, 'PINS', T);
+  T := compiler.LookupTypeId('NUMBER');
+  result := compiler.RegisterSetType(H, 'PINS', T);
 end;
 
 
-function RegisterEnumType_SCALE(H: Integer): Integer;
+function RegisterEnumType_SCALE(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterEnumType(H, 'SCALE');
-  RegisterEnumValue(result, 'S0V1', 0);
-  RegisterEnumValue(result, 'S1V', 1);
-  RegisterEnumValue(result, 'S10V', 2);
-  RegisterEnumValue(result, 'S100V', 3);
-  RegisterEnumValue(result, 'S1000V', 4);
+  result := compiler.RegisterEnumType(H, 'SCALE');
+  compiler.RegisterEnumValue(result, 'S0V1', 0);
+  compiler.RegisterEnumValue(result, 'S1V', 1);
+  compiler.RegisterEnumValue(result, 'S10V', 2);
+  compiler.RegisterEnumValue(result, 'S100V', 3);
+  compiler.RegisterEnumValue(result, 'S1000V', 4);
 end;
 
 
-function RegisterEnumType_SELECTOR(H: Integer): Integer;
+function RegisterEnumType_SELECTOR(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterEnumType(H, 'SELECTOR');
-  RegisterEnumValue(result, 'sON', 0);
-  RegisterEnumValue(result, 'sOFF', 1);
+  result := compiler.RegisterEnumType(H, 'SELECTOR');
+  compiler.RegisterEnumValue(result, 'sON', 0);
+  compiler.RegisterEnumValue(result, 'sOFF', 1);
 end;
 
 
-function RegisterEnumType_TYPMODE(H: Integer): Integer;
+function RegisterEnumType_TYPMODE(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterEnumType(H, 'TYPMODE');
-  RegisterEnumValue(result, 'U', 0);
-  RegisterEnumValue(result, 'I', 1);
+  result := compiler.RegisterEnumType(H, 'TYPMODE');
+  compiler.RegisterEnumValue(result, 'U', 0);
+  compiler.RegisterEnumValue(result, 'I', 1);
 end;
 
 
-function RegisterSubrangeType_SubType_1000087(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000087(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000087 = 1 .. maxtest;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000087 = 1 .. maxtest;');
 end;
 
 
-function RegisterSubrangeType_SubType_1000094(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000094(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000094 =  1 .. 2;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000094 =  1 .. 2;');
 end;
 
 
-function RegisterArrayType_ARLIM(H: Integer): Integer;
+function RegisterArrayType_ARLIM(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -187,25 +175,25 @@ begin
   result := 0;
   K := 2;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000087 = 1 .. maxtest;');
-  R[1] := RegisterTypeDeclaration(H, 'SubType_1000094 =  1 .. 2;');
-  ElemTypeId := LookupTypeId('Real');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000087 = 1 .. maxtest;');
+  R[1] := compiler.RegisterTypeDeclaration(H, 'SubType_1000094 =  1 .. 2;');
+  ElemTypeId := compiler.LookupTypeId('Real');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ARLIM', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ARLIM', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterSubrangeType_SubType_1000103(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000103(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000103 = 1 .. maxtest;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000103 = 1 .. maxtest;');
 end;
 
 
-function RegisterArrayType_arv(H: Integer): Integer;
+function RegisterArrayType_arv(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -213,18 +201,18 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000103 = 1 .. maxtest;');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000103 = 1 .. maxtest;');
   ElemTypeId := _typeINTEGER;
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'arv', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'arv', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterArrayType_ArrayType_1000108(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000108(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -232,45 +220,45 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('Real');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('Real');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000108', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000108', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__RES_ADC(H: Integer): Integer;
+function RegisterVariable__RES_ADC(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000108');
-  result := RegisterVariable(H, 'RES_ADC', T, @ RES_ADC);
+  T := compiler.LookupTypeId('ArrayType_1000108');
+  result := compiler.RegisterVariable(H, 'RES_ADC', T, @ RES_ADC);
 end;
 
 
-function RegisterVariable__LOWCOMP(H: Integer): Integer;
-var
-  T: Integer;
-begin
-  T := _typeWORD;
-  result := RegisterVariable(H, 'LOWCOMP', T, @ LOWCOMP);
-end;
-
-
-function RegisterVariable__UPCOMP(H: Integer): Integer;
+function RegisterVariable__LOWCOMP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'UPCOMP', T, @ UPCOMP);
+  result := compiler.RegisterVariable(H, 'LOWCOMP', T, @ LOWCOMP);
 end;
 
 
-function RegisterArrayType_ArrayType_1000115(H: Integer): Integer;
+function RegisterVariable__UPCOMP(H: Integer; compiler: TPaxCompiler): Integer;
+var
+  T: Integer;
+begin
+  T := _typeWORD;
+  result := compiler.RegisterVariable(H, 'UPCOMP', T, @ UPCOMP);
+end;
+
+
+function RegisterArrayType_ArrayType_1000115(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -278,126 +266,126 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('EDIZM');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('EDIZM');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000115', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000115', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__EDIZMRES(H: Integer): Integer;
+function RegisterVariable__EDIZMRES(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000115');
-  result := RegisterVariable(H, 'EDIZMRES', T, @ EDIZMRES);
+  T := compiler.LookupTypeId('ArrayType_1000115');
+  result := compiler.RegisterVariable(H, 'EDIZMRES', T, @ EDIZMRES);
 end;
 
 
-function RegisterVariable__N(H: Integer): Integer;
+function RegisterVariable__N(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('PINS');
-  result := RegisterVariable(H, 'N', T, @ N);
+  T := compiler.LookupTypeId('PINS');
+  result := compiler.RegisterVariable(H, 'N', T, @ N);
 end;
 
 
-function RegisterVariable__TESTNAM(H: Integer): Integer;
+function RegisterVariable__TESTNAM(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('IMYA');
-  result := RegisterVariable(H, 'TESTNAM', T, @ TESTNAM);
+  T := compiler.LookupTypeId('IMYA');
+  result := compiler.RegisterVariable(H, 'TESTNAM', T, @ TESTNAM);
 end;
 
 
-function RegisterVariable__TESTUN(H: Integer): Integer;
+function RegisterVariable__TESTUN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('IMYA');
-  result := RegisterVariable(H, 'TESTUN', T, @ TESTUN);
+  T := compiler.LookupTypeId('IMYA');
+  result := compiler.RegisterVariable(H, 'TESTUN', T, @ TESTUN);
 end;
 
 
-function RegisterVariable__TestNum(H: Integer): Integer;
+function RegisterVariable__TestNum(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'TestNum', T, @ TestNum);
+  result := compiler.RegisterVariable(H, 'TestNum', T, @ TestNum);
 end;
 
 
-//function RegisterVariable__NLOOP(H: Integer): Integer;
+//function RegisterVariable__NLOOP(H: Integer; compiler: TPaxCompiler): Integer;
 //var
 //  T: Integer;
 //begin
 //  T := _typeWORD;
-//  result := RegisterVariable(H, 'NLOOP', T, @ NLOOP);
+//  result := compiler.RegisterVariable(H, 'NLOOP', T, @ NLOOP);
 //end;
 
 
-function RegisterVariable__PULT(H: Integer): Integer;
+function RegisterVariable__PULT(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBYTE;
-  result := RegisterVariable(H, 'PULT', T, @ PULT);
+  result := compiler.RegisterVariable(H, 'PULT', T, @ PULT);
 end;
 
 
-function RegisterVariable__PLAN(H: Integer): Integer;
+function RegisterVariable__PLAN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBYTE;
-  result := RegisterVariable(H, 'PLAN', T, @ PLAN);
+  result := compiler.RegisterVariable(H, 'PLAN', T, @ PLAN);
 end;
 
 
-function RegisterVariable__PLN(H: Integer): Integer;
+function RegisterVariable__PLN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBYTE;
-  result := RegisterVariable(H, 'PLN', T, @ PLN);
+  result := compiler.RegisterVariable(H, 'PLN', T, @ PLN);
 end;
 
 
-function RegisterVariable__PLANK(H: Integer): Integer;
+function RegisterVariable__PLANK(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBYTE;
-  result := RegisterVariable(H, 'PLANK', T, @ PLANK);
+  result := compiler.RegisterVariable(H, 'PLANK', T, @ PLANK);
 end;
 
 
-function RegisterVariable__COM032(H: Integer): Integer;
+function RegisterVariable__COM032(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'COM032', T, @ COM032);
+  result := compiler.RegisterVariable(H, 'COM032', T, @ COM032);
 end;
 
 
-function RegisterVariable__COM116(H: Integer): Integer;
+function RegisterVariable__COM116(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'COM116', T, @ COM116);
+  result := compiler.RegisterVariable(H, 'COM116', T, @ COM116);
 end;
 
 
-function RegisterArrayType_ArrayType_1000134(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000134(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -405,153 +393,153 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
+  R[0] := compiler.LookupTypeId('NUMBER');
   ElemTypeId := _typeWORD;
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000134', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000134', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__COMU(H: Integer): Integer;
+function RegisterVariable__COMU(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000134');
-  result := RegisterVariable(H, 'COMU', T, @ COMU);
+  T := compiler.LookupTypeId('ArrayType_1000134');
+  result := compiler.RegisterVariable(H, 'COMU', T, @ COMU);
 end;
 
 
-function RegisterVariable__CLAMPRANGE(H: Integer): Integer;
+function RegisterVariable__CLAMPRANGE(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000134');
-  result := RegisterVariable(H, 'CLAMPRANGE', T, @ CLAMPRANGE);
+  T := compiler.LookupTypeId('ArrayType_1000134');
+  result := compiler.RegisterVariable(H, 'CLAMPRANGE', T, @ CLAMPRANGE);
 end;
 
 
-function RegisterVariable__PINNO(H: Integer): Integer;
+function RegisterVariable__PINNO(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000134');
-  result := RegisterVariable(H, 'PINNO', T, @ PINNO);
+  T := compiler.LookupTypeId('ArrayType_1000134');
+  result := compiler.RegisterVariable(H, 'PINNO', T, @ PINNO);
 end;
 
 
-function RegisterVariable__COM376(H: Integer): Integer;
+function RegisterVariable__COM376(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000134');
-  result := RegisterVariable(H, 'COM376', T, @ COM376);
+  T := compiler.LookupTypeId('ArrayType_1000134');
+  result := compiler.RegisterVariable(H, 'COM376', T, @ COM376);
 end;
 
 
-function RegisterVariable__NEWMODE(H: Integer): Integer;
+function RegisterVariable__NEWMODE(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('PINS');
-  result := RegisterVariable(H, 'NEWMODE', T, @ NEWMODE);
+  T := compiler.LookupTypeId('PINS');
+  result := compiler.RegisterVariable(H, 'NEWMODE', T, @ NEWMODE);
 end;
 
 
-function RegisterVariable__TOTALBRAK(H: Integer): Integer;
-var
-  T: Integer;
-begin
-  T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'TOTALBRAK', T, @ TOTALBRAK);
-end;
-
-
-function RegisterVariable__TOTALADC(H: Integer): Integer;
+function RegisterVariable__TOTALBRAK(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'TOTALADC', T, @ TOTALADC);
+  result := compiler.RegisterVariable(H, 'TOTALBRAK', T, @ TOTALBRAK);
 end;
 
 
-function RegisterVariable__GRIEF(H: Integer): Integer;
+function RegisterVariable__TOTALADC(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'GRIEF', T, @ GRIEF);
+  result := compiler.RegisterVariable(H, 'TOTALADC', T, @ TOTALADC);
 end;
 
 
-function RegisterVariable__STOP(H: Integer): Integer;
+function RegisterVariable__GRIEF(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'STOP', T, @ STOP);
+  result := compiler.RegisterVariable(H, 'GRIEF', T, @ GRIEF);
 end;
 
 
-function RegisterVariable__ADCSTAT(H: Integer): Integer;
+function RegisterVariable__STOP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'ADCSTAT', T, @ ADCSTAT);
+  result := compiler.RegisterVariable(H, 'STOP', T, @ STOP);
 end;
 
 
-function RegisterVariable__ADCB(H: Integer): Integer;
+function RegisterVariable__ADCSTAT(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'ADCB', T, @ ADCB);
+  result := compiler.RegisterVariable(H, 'ADCSTAT', T, @ ADCSTAT);
 end;
 
 
-function RegisterVariable__HALTB(H: Integer): Integer;
+function RegisterVariable__ADCB(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'HALTB', T, @ HALTB);
+  result := compiler.RegisterVariable(H, 'ADCB', T, @ ADCB);
 end;
 
 
-function RegisterVariable__LOOP(H: Integer): Integer;
+function RegisterVariable__HALTB(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'LOOP', T, @ LOOP);
+  result := compiler.RegisterVariable(H, 'HALTB', T, @ HALTB);
 end;
 
 
-function RegisterVariable__SINCH(H: Integer): Integer;
+function RegisterVariable__LOOP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'SINCH', T, @ SINCH);
+  result := compiler.RegisterVariable(H, 'LOOP', T, @ LOOP);
 end;
 
 
-function RegisterVariable__STAT(H: Integer): Integer;
+function RegisterVariable__SINCH(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'STAT', T, @ STAT);
+  result := compiler.RegisterVariable(H, 'SINCH', T, @ SINCH);
 end;
 
 
-function RegisterArrayType_ArrayType_1000150(H: Integer): Integer;
+function RegisterVariable__STAT(H: Integer; compiler: TPaxCompiler): Integer;
+var
+  T: Integer;
+begin
+  T := _typeBOOLEAN;
+  result := compiler.RegisterVariable(H, 'STAT', T, @ STAT);
+end;
+
+
+function RegisterArrayType_ArrayType_1000150(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -559,27 +547,27 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('TYPMODE');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('TYPMODE');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000150', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000150', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__MOD376(H: Integer): Integer;
+function RegisterVariable__MOD376(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000150');
-  result := RegisterVariable(H, 'MOD376', T, @ MOD376);
+  T := compiler.LookupTypeId('ArrayType_1000150');
+  result := compiler.RegisterVariable(H, 'MOD376', T, @ MOD376);
 end;
 
 
-function RegisterArrayType_ArrayType_1000160(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000160(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -587,126 +575,126 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('Real');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('Real');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000160', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000160', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__FORCE(H: Integer): Integer;
+function RegisterVariable__FORCE(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'FORCE', T, @ FORCE);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'FORCE', T, @ FORCE);
 end;
 
 
-function RegisterVariable__CLAMP(H: Integer): Integer;
+function RegisterVariable__CLAMP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'CLAMP', T, @ CLAMP);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'CLAMP', T, @ CLAMP);
 end;
 
 
-function RegisterVariable__DOWNLIMIT(H: Integer): Integer;
+function RegisterVariable__DOWNLIMIT(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'DOWNLIMIT', T, @ DOWNLIMIT);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'DOWNLIMIT', T, @ DOWNLIMIT);
 end;
 
 
-function RegisterVariable__UPLIMIT(H: Integer): Integer;
+function RegisterVariable__UPLIMIT(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'UPLIMIT', T, @ UPLIMIT);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'UPLIMIT', T, @ UPLIMIT);
 end;
 
 
-function RegisterVariable__TIMEON(H: Integer): Integer;
+function RegisterVariable__TIMEON(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'TIMEON', T, @ TIMEON);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'TIMEON', T, @ TIMEON);
 end;
 
 
-function RegisterVariable__TIMEOFF(H: Integer): Integer;
+function RegisterVariable__TIMEOFF(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000160');
-  result := RegisterVariable(H, 'TIMEOFF', T, @ TIMEOFF);
+  T := compiler.LookupTypeId('ArrayType_1000160');
+  result := compiler.RegisterVariable(H, 'TIMEOFF', T, @ TIMEOFF);
 end;
 
 
-function RegisterVariable__LENTEST(H: Integer): Integer;
+function RegisterVariable__LENTEST(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('Real');
-  result := RegisterVariable(H, 'LENTEST', T, @ LENTEST);
+  T := compiler.LookupTypeId('Real');
+  result := compiler.RegisterVariable(H, 'LENTEST', T, @ LENTEST);
 end;
 
 
-function RegisterVariable__DEL3(H: Integer): Integer;
-var
-  T: Integer;
-begin
-  T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'DEL3', T, @ DEL3);
-end;
-
-
-function RegisterVariable__SMALLI(H: Integer): Integer;
+function RegisterVariable__DEL3(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'SMALLI', T, @ SMALLI);
+  result := compiler.RegisterVariable(H, 'DEL3', T, @ DEL3);
 end;
 
 
-function RegisterVariable__OFFPIN(H: Integer): Integer;
+function RegisterVariable__SMALLI(H: Integer; compiler: TPaxCompiler): Integer;
+var
+  T: Integer;
+begin
+  T := _typeBOOLEAN;
+  result := compiler.RegisterVariable(H, 'SMALLI', T, @ SMALLI);
+end;
+
+
+function RegisterVariable__OFFPIN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'OFFPIN', T, @ OFFPIN);
+  result := compiler.RegisterVariable(H, 'OFFPIN', T, @ OFFPIN);
 end;
 
 
-function RegisterVariable__LOADPIN(H: Integer): Integer;
+function RegisterVariable__LOADPIN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'LOADPIN', T, @ LOADPIN);
+  result := compiler.RegisterVariable(H, 'LOADPIN', T, @ LOADPIN);
 end;
 
 
-function RegisterVariable__DLOADPIN(H: Integer): Integer;
+function RegisterVariable__DLOADPIN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'DLOADPIN', T, @ DLOADPIN);
+  result := compiler.RegisterVariable(H, 'DLOADPIN', T, @ DLOADPIN);
 end;
 
 
-function RegisterArrayType_ArrayType_1000174(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000174(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -714,63 +702,63 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('EDIZM');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('EDIZM');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000174', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000174', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__UNITF(H: Integer): Integer;
+function RegisterVariable__UNITF(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000174');
-  result := RegisterVariable(H, 'UNITF', T, @ UNITF);
+  T := compiler.LookupTypeId('ArrayType_1000174');
+  result := compiler.RegisterVariable(H, 'UNITF', T, @ UNITF);
 end;
 
 
-function RegisterVariable__UNITC(H: Integer): Integer;
+function RegisterVariable__UNITC(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000174');
-  result := RegisterVariable(H, 'UNITC', T, @ UNITC);
+  T := compiler.LookupTypeId('ArrayType_1000174');
+  result := compiler.RegisterVariable(H, 'UNITC', T, @ UNITC);
 end;
 
 
-function RegisterVariable__UNITONOFF(H: Integer): Integer;
+function RegisterVariable__UNITONOFF(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000174');
-  result := RegisterVariable(H, 'UNITONOFF', T, @ UNITONOFF);
+  T := compiler.LookupTypeId('ArrayType_1000174');
+  result := compiler.RegisterVariable(H, 'UNITONOFF', T, @ UNITONOFF);
 end;
 
 
-function RegisterVariable__UNITCOMP(H: Integer): Integer;
+function RegisterVariable__UNITCOMP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000174');
-  result := RegisterVariable(H, 'UNITCOMP', T, @ UNITCOMP);
+  T := compiler.LookupTypeId('ArrayType_1000174');
+  result := compiler.RegisterVariable(H, 'UNITCOMP', T, @ UNITCOMP);
 end;
 
 
-function RegisterVariable__UNITLEN(H: Integer): Integer;
+function RegisterVariable__UNITLEN(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('EDIZM');
-  result := RegisterVariable(H, 'UNITLEN', T, @ UNITLEN);
+  T := compiler.LookupTypeId('EDIZM');
+  result := compiler.RegisterVariable(H, 'UNITLEN', T, @ UNITLEN);
 end;
 
 
-function RegisterArrayType_ArrayType_1000180(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000180(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -778,141 +766,141 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := LookupTypeId('NUMBER');
-  ElemTypeId := LookupTypeId('Real');
+  R[0] := compiler.LookupTypeId('NUMBER');
+  ElemTypeId := compiler.LookupTypeId('Real');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000180', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000180', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__DISCRADC(H: Integer): Integer;
+function RegisterVariable__DISCRADC(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000180');
-  result := RegisterVariable(H, 'DISCRADC', T, @ DISCRADC);
+  T := compiler.LookupTypeId('ArrayType_1000180');
+  result := compiler.RegisterVariable(H, 'DISCRADC', T, @ DISCRADC);
 end;
 
 
-function RegisterVariable__TIMERANG(H: Integer): Integer;
+function RegisterVariable__TIMERANG(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'TIMERANG', T, @ TIMERANG);
+  result := compiler.RegisterVariable(H, 'TIMERANG', T, @ TIMERANG);
 end;
 
 
-function RegisterVariable__CHANGEDELAYRANG(H: Integer): Integer;
+function RegisterVariable__CHANGEDELAYRANG(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'CHANGEDELAYRANG', T, @ CHANGEDELAYRANG);
+  result := compiler.RegisterVariable(H, 'CHANGEDELAYRANG', T, @ CHANGEDELAYRANG);
 end;
 
 
-function RegisterVariable__CHANGELENGTH(H: Integer): Integer;
+function RegisterVariable__CHANGELENGTH(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'CHANGELENGTH', T, @ CHANGELENGTH);
+  result := compiler.RegisterVariable(H, 'CHANGELENGTH', T, @ CHANGELENGTH);
 end;
 
 
-function RegisterVariable__RESHIGH(H: Integer): Integer;
+function RegisterVariable__RESHIGH(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'RESHIGH', T, @ RESHIGH);
+  result := compiler.RegisterVariable(H, 'RESHIGH', T, @ RESHIGH);
 end;
 
 
-function RegisterVariable__RESLOW(H: Integer): Integer;
+function RegisterVariable__RESLOW(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'RESLOW', T, @ RESLOW);
+  result := compiler.RegisterVariable(H, 'RESLOW', T, @ RESLOW);
 end;
 
 
-function RegisterVariable__RESCOM(H: Integer): Integer;
+function RegisterVariable__RESCOM(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeWORD;
-  result := RegisterVariable(H, 'RESCOM', T, @ RESCOM);
+  result := compiler.RegisterVariable(H, 'RESCOM', T, @ RESCOM);
 end;
 
 
-function RegisterVariable__LOW(H: Integer): Integer;
+function RegisterVariable__LOW(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'LOW', T, @ LOW);
+  result := compiler.RegisterVariable(H, 'LOW', T, @ LOW);
 end;
 
 
-function RegisterVariable__HIGH(H: Integer): Integer;
+function RegisterVariable__HIGH(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'HIGH', T, @ HIGH);
+  result := compiler.RegisterVariable(H, 'HIGH', T, @ HIGH);
 end;
 
 
-function RegisterVariable__CMPCHK(H: Integer): Integer;
+function RegisterVariable__CMPCHK(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'CMPCHK', T, @ CMPCHK);
+  result := compiler.RegisterVariable(H, 'CMPCHK', T, @ CMPCHK);
 end;
 
 
-function RegisterVariable__SKIP(H: Integer): Integer;
+function RegisterVariable__SKIP(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'SKIP', T, @ SKIP);
+  result := compiler.RegisterVariable(H, 'SKIP', T, @ SKIP);
 end;
 
 
-function RegisterVariable__numtst(H: Integer): Integer;
+function RegisterVariable__numtst(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'numtst', T, @ numtst);
+  result := compiler.RegisterVariable(H, 'numtst', T, @ numtst);
 end;
 
 
-function RegisterVariable__lim(H: Integer): Integer;
+function RegisterVariable__lim(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ARLIM');
-  result := RegisterVariable(H, 'lim', T, @ lim);
+  T := compiler.LookupTypeId('ARLIM');
+  result := compiler.RegisterVariable(H, 'lim', T, @ lim);
 end;
 
 
-function RegisterSubrangeType_SubType_1000201(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000201(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000201 = 1 .. maxgroup;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000201 = 1 .. maxgroup;');
 end;
 
 
-function RegisterArrayType_ArrayType_1000197(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000197(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -920,42 +908,42 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000201 = 1 .. maxgroup;');
-  ElemTypeId := LookupTypeId('ARLIM');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000201 = 1 .. maxgroup;');
+  ElemTypeId := compiler.LookupTypeId('ARLIM');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000197', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000197', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__limx(H: Integer): Integer;
+function RegisterVariable__limx(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000197');
-  result := RegisterVariable(H, 'limx', T, @ limx);
+  T := compiler.LookupTypeId('ArrayType_1000197');
+  result := compiler.RegisterVariable(H, 'limx', T, @ limx);
 end;
 
 
-function RegisterVariable__pnno(H: Integer): Integer;
+function RegisterVariable__pnno(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('arv');
-  result := RegisterVariable(H, 'pnno', T, @ pnno);
+  T := compiler.LookupTypeId('arv');
+  result := compiler.RegisterVariable(H, 'pnno', T, @ pnno);
 end;
 
 
-function RegisterSubrangeType_SubType_1000211(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000211(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000211 = 1 .. maxtest;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000211 = 1 .. maxtest;');
 end;
 
 
-function RegisterArrayType_ArrayType_1000207(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000207(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -963,33 +951,33 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000211 = 1 .. maxtest;');
-  ElemTypeId := LookupTypeId('IMYA');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000211 = 1 .. maxtest;');
+  ElemTypeId := compiler.LookupTypeId('IMYA');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000207', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000207', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__tsun(H: Integer): Integer;
+function RegisterVariable__tsun(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000207');
-  result := RegisterVariable(H, 'tsun', T, @ tsun);
+  T := compiler.LookupTypeId('ArrayType_1000207');
+  result := compiler.RegisterVariable(H, 'tsun', T, @ tsun);
 end;
 
 
-function RegisterSubrangeType_SubType_1000220(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000220(H: Integer; compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000220 = 1 .. maxtest;');
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000220 = 1 .. maxtest;');
 end;
 
 
-function RegisterArrayType_ArrayType_1000216(H: Integer): Integer;
+function RegisterArrayType_ArrayType_1000216(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -997,69 +985,69 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000220 = 1 .. maxtest;');
-  ElemTypeId := LookupTypeId('IMYA');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000220 = 1 .. maxtest;');
+  ElemTypeId := compiler.LookupTypeId('IMYA');
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000216', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000216', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__tsnam(H: Integer): Integer;
+function RegisterVariable__tsnam(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000216');
-  result := RegisterVariable(H, 'tsnam', T, @ tsnam);
+  T := compiler.LookupTypeId('ArrayType_1000216');
+  result := compiler.RegisterVariable(H, 'tsnam', T, @ tsnam);
 end;
 
 
-function RegisterVariable__izm_(H: Integer): Integer;
-var
-  T: Integer;
-begin
-  T := _typeINTEGER;
-  result := RegisterVariable(H, 'izm_', T, @ izm_);
-end;
-
-
-function RegisterVariable__curgrp(H: Integer): Integer;
+function RegisterVariable__izm_(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'curgrp', T, @ curgrp);
+  result := compiler.RegisterVariable(H, 'izm_', T, @ izm_);
 end;
 
 
-function RegisterVariable__maxgrp(H: Integer): Integer;
+function RegisterVariable__curgrp(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'maxgrp', T, @ maxgrp);
+  result := compiler.RegisterVariable(H, 'curgrp', T, @ curgrp);
 end;
 
 
-function RegisterVariable__maxtst(H: Integer): Integer;
+function RegisterVariable__maxgrp(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'maxtst', T, @ maxtst);
+  result := compiler.RegisterVariable(H, 'maxgrp', T, @ maxgrp);
 end;
 
 
-function RegisterSubrangeType_SubType_1000233(H: Integer): Integer;
+function RegisterVariable__maxtst(H: Integer; compiler: TPaxCompiler): Integer;
+var
+  T: Integer;
 begin
-  result := RegisterTypeDeclaration(H, 'SubType_1000233 = 1 .. maxgroup;');
+  T := _typeINTEGER;
+  result := compiler.RegisterVariable(H, 'maxtst', T, @ maxtst);
 end;
 
 
-function RegisterArrayType_ArrayType_1000229(H: Integer): Integer;
+function RegisterSubrangeType_SubType_1000233(H: Integer; compiler: TPaxCompiler): Integer;
+begin
+  result := compiler.RegisterTypeDeclaration(H, 'SubType_1000233 = 1 .. maxgroup;');
+end;
+
+
+function RegisterArrayType_ArrayType_1000229(H: Integer; compiler: TPaxCompiler): Integer;
 var
   I, ElemTypeId, RangeTypeId, K: Integer;
   R: array of Integer;
@@ -1067,182 +1055,183 @@ begin
   result := 0;
   K := 1;
   SetLength(R, K);
-  R[0] := RegisterTypeDeclaration(H, 'SubType_1000233 = 1 .. maxgroup;');
+  R[0] := compiler.RegisterTypeDeclaration(H, 'SubType_1000233 = 1 .. maxgroup;');
   ElemTypeId := _typeUNICSTRING;
   for I := 0 to K - 1 do
   begin
     RangeTypeId := R[K - I - 1];
-    result := RegisterArrayType(H, 'ArrayType_1000229', RangeTypeId, ElemTypeId, true);
+    result := compiler.RegisterArrayType(H, 'ArrayType_1000229', RangeTypeId, ElemTypeId, true);
     ElemTypeId := result;
   end;
 end;
 
 
-function RegisterVariable__grpmsg(H: Integer): Integer;
+function RegisterVariable__grpmsg(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('ArrayType_1000229');
-  result := RegisterVariable(H, 'grpmsg', T, @ grpmsg);
+  T := compiler.LookupTypeId('ArrayType_1000229');
+  result := compiler.RegisterVariable(H, 'grpmsg', T, @ grpmsg);
 end;
 
 
-function RegisterVariable__lastpl(H: Integer): Integer;
+function RegisterVariable__lastpl(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeINTEGER;
-  result := RegisterVariable(H, 'lastpl', T, @ lastpl);
+  result := compiler.RegisterVariable(H, 'lastpl', T, @ lastpl);
 end;
 
 
-function RegisterVariable__endpr(H: Integer): Integer;
+function RegisterVariable__endpr(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'endpr', T, @ endpr);
+  result := compiler.RegisterVariable(H, 'endpr', T, @ endpr);
 end;
 
 
-function RegisterVariable__smenagr(H: Integer): Integer;
+function RegisterVariable__smenagr(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
   T := _typeBOOLEAN;
-  result := RegisterVariable(H, 'smenagr', T, @ smenagr);
+  result := compiler.RegisterVariable(H, 'smenagr', T, @ smenagr);
 end;
 
 
-function RegisterVariable__shiftres(H: Integer): Integer;
+function RegisterVariable__shiftres(H: Integer; compiler: TPaxCompiler): Integer;
 var
   T: Integer;
 begin
-  T := LookupTypeId('Real');
-  result := RegisterVariable(H, 'shiftres', T, @ shiftres);
+  T := compiler.LookupTypeId('Real');
+  result := compiler.RegisterVariable(H, 'shiftres', T, @ shiftres);
 end;
 
 
-procedure Part1(result: Integer);
+procedure Part1(result: Integer; compiler: TPaxCompiler);
 begin
 //  RegisterConstant__MADC(result);
 //  RegisterConstant__MHALT(result);
 //  RegisterConstant__MLOOP(result);
 //  RegisterConstant__MSINCH(result);
 //  RegisterConstant__MSTAT(result);
-  RegisterConstant__MAXGROUP(result);
 //  RegisterConstant__MAXPOINT(result);
-  RegisterConstant__OPEN(result);
-  RegisterConstant__maxtest(result);
-  RegisterEnumType_EDIZM(result);
-  RegisterShortStringType_IMYA(result);
-  RegisterEnumType_ITOGO(result);
-  RegisterSubrangeType_NUMBER(result);
-  RegisterSetType_PINS(result);
-  RegisterEnumType_SCALE(result);
-  RegisterEnumType_SELECTOR(result);
-  RegisterEnumType_TYPMODE(result);
-  RegisterSubrangeType_SubType_1000087(result);
-  RegisterSubrangeType_SubType_1000094(result);
-  RegisterArrayType_ARLIM(result);
-  RegisterSubrangeType_SubType_1000103(result);
-  RegisterArrayType_arv(result);
-  RegisterArrayType_ArrayType_1000108(result);
-  RegisterVariable__RES_ADC(result);
-  RegisterVariable__LOWCOMP(result);
-  RegisterVariable__UPCOMP(result);
-  RegisterArrayType_ArrayType_1000115(result);
-  RegisterVariable__EDIZMRES(result);
-  RegisterVariable__N(result);
-  RegisterVariable__TESTNAM(result);
-  RegisterVariable__TESTUN(result);
-  RegisterVariable__TestNum(result);
 //  RegisterVariable__NLOOP(result);
-  RegisterVariable__PULT(result);
-  RegisterVariable__PLAN(result);
-  RegisterVariable__PLN(result);
-  RegisterVariable__PLANK(result);
-  RegisterVariable__COM032(result);
-  RegisterVariable__COM116(result);
-  RegisterArrayType_ArrayType_1000134(result);
-  RegisterVariable__COMU(result);
-  RegisterVariable__CLAMPRANGE(result);
-  RegisterVariable__PINNO(result);
-  RegisterVariable__COM376(result);
-  RegisterVariable__NEWMODE(result);
-  RegisterVariable__TOTALBRAK(result);
-  RegisterVariable__TOTALADC(result);
-  RegisterVariable__GRIEF(result);
-  RegisterVariable__STOP(result);
-  RegisterVariable__ADCSTAT(result);
-  RegisterVariable__ADCB(result);
-  RegisterVariable__HALTB(result);
-  RegisterVariable__LOOP(result);
-  RegisterVariable__SINCH(result);
-  RegisterVariable__STAT(result);
-  RegisterArrayType_ArrayType_1000150(result);
-  RegisterVariable__MOD376(result);
-  RegisterArrayType_ArrayType_1000160(result);
-  RegisterVariable__FORCE(result);
-  RegisterVariable__CLAMP(result);
-  RegisterVariable__DOWNLIMIT(result);
-  RegisterVariable__UPLIMIT(result);
-  RegisterVariable__TIMEON(result);
-  RegisterVariable__TIMEOFF(result);
-  RegisterVariable__LENTEST(result);
-  RegisterVariable__DEL3(result);
-  RegisterVariable__SMALLI(result);
-  RegisterVariable__OFFPIN(result);
-  RegisterVariable__LOADPIN(result);
-  RegisterVariable__DLOADPIN(result);
-  RegisterArrayType_ArrayType_1000174(result);
-  RegisterVariable__UNITF(result);
-  RegisterVariable__UNITC(result);
-  RegisterVariable__UNITONOFF(result);
-  RegisterVariable__UNITCOMP(result);
-  RegisterVariable__UNITLEN(result);
-  RegisterArrayType_ArrayType_1000180(result);
-  RegisterVariable__DISCRADC(result);
-  RegisterVariable__TIMERANG(result);
-  RegisterVariable__CHANGEDELAYRANG(result);
-  RegisterVariable__CHANGELENGTH(result);
-  RegisterVariable__RESHIGH(result);
-  RegisterVariable__RESLOW(result);
-  RegisterVariable__RESCOM(result);
-  RegisterVariable__LOW(result);
-  RegisterVariable__HIGH(result);
-  RegisterVariable__CMPCHK(result);
-  RegisterVariable__SKIP(result);
-  RegisterVariable__numtst(result);
-  RegisterVariable__lim(result);
-  RegisterSubrangeType_SubType_1000201(result);
-  RegisterArrayType_ArrayType_1000197(result);
-  RegisterVariable__limx(result);
-  RegisterVariable__pnno(result);
-  RegisterSubrangeType_SubType_1000211(result);
-  RegisterArrayType_ArrayType_1000207(result);
-  RegisterVariable__tsun(result);
-  RegisterSubrangeType_SubType_1000220(result);
-  RegisterArrayType_ArrayType_1000216(result);
-  RegisterVariable__tsnam(result);
-  RegisterVariable__izm_(result);
-  RegisterVariable__curgrp(result);
-  RegisterVariable__maxgrp(result);
-  RegisterVariable__maxtst(result);
-  RegisterSubrangeType_SubType_1000233(result);
-  RegisterArrayType_ArrayType_1000229(result);
-  RegisterVariable__grpmsg(result);
-  RegisterVariable__lastpl(result);
-  RegisterVariable__endpr(result);
-  RegisterVariable__smenagr(result);
-  RegisterVariable__shiftres(result);
+
+  RegisterConstant__MAXGROUP(result, compiler);
+  RegisterConstant__OPEN(result, compiler);
+  RegisterConstant__maxtest(result, compiler);
+  RegisterEnumType_EDIZM(result, compiler);
+  RegisterShortStringType_IMYA(result, compiler);
+  RegisterEnumType_ITOGO(result, compiler);
+  RegisterSubrangeType_NUMBER(result, compiler);
+  RegisterSetType_PINS(result, compiler);
+  RegisterEnumType_SCALE(result, compiler);
+  RegisterEnumType_SELECTOR(result, compiler);
+  RegisterEnumType_TYPMODE(result, compiler);
+  RegisterSubrangeType_SubType_1000087(result, compiler);
+  RegisterSubrangeType_SubType_1000094(result, compiler);
+  RegisterArrayType_ARLIM(result, compiler);
+  RegisterSubrangeType_SubType_1000103(result, compiler);
+  RegisterArrayType_arv(result, compiler);
+  RegisterArrayType_ArrayType_1000108(result, compiler);
+  RegisterVariable__RES_ADC(result, compiler);
+  RegisterVariable__LOWCOMP(result, compiler);
+  RegisterVariable__UPCOMP(result, compiler);
+  RegisterArrayType_ArrayType_1000115(result, compiler);
+  RegisterVariable__EDIZMRES(result, compiler);
+  RegisterVariable__N(result, compiler);
+  RegisterVariable__TESTNAM(result, compiler);
+  RegisterVariable__TESTUN(result, compiler);
+  RegisterVariable__TestNum(result, compiler);
+  RegisterVariable__PULT(result, compiler);
+  RegisterVariable__PLAN(result, compiler);
+  RegisterVariable__PLN(result, compiler);
+  RegisterVariable__PLANK(result, compiler);
+  RegisterVariable__COM032(result, compiler);
+  RegisterVariable__COM116(result, compiler);
+  RegisterArrayType_ArrayType_1000134(result, compiler);
+  RegisterVariable__COMU(result, compiler);
+  RegisterVariable__CLAMPRANGE(result, compiler);
+  RegisterVariable__PINNO(result, compiler);
+  RegisterVariable__COM376(result, compiler);
+  RegisterVariable__NEWMODE(result, compiler);
+  RegisterVariable__TOTALBRAK(result, compiler);
+  RegisterVariable__TOTALADC(result, compiler);
+  RegisterVariable__GRIEF(result, compiler);
+  RegisterVariable__STOP(result, compiler);
+  RegisterVariable__ADCSTAT(result, compiler);
+  RegisterVariable__ADCB(result, compiler);
+  RegisterVariable__HALTB(result, compiler);
+  RegisterVariable__LOOP(result, compiler);
+  RegisterVariable__SINCH(result, compiler);
+  RegisterVariable__STAT(result, compiler);
+  RegisterArrayType_ArrayType_1000150(result, compiler);
+  RegisterVariable__MOD376(result, compiler);
+  RegisterArrayType_ArrayType_1000160(result, compiler);
+  RegisterVariable__FORCE(result, compiler);
+  RegisterVariable__CLAMP(result, compiler);
+  RegisterVariable__DOWNLIMIT(result, compiler);
+  RegisterVariable__UPLIMIT(result, compiler);
+  RegisterVariable__TIMEON(result, compiler);
+  RegisterVariable__TIMEOFF(result, compiler);
+  RegisterVariable__LENTEST(result, compiler);
+  RegisterVariable__DEL3(result, compiler);
+  RegisterVariable__SMALLI(result, compiler);
+  RegisterVariable__OFFPIN(result, compiler);
+  RegisterVariable__LOADPIN(result, compiler);
+  RegisterVariable__DLOADPIN(result, compiler);
+  RegisterArrayType_ArrayType_1000174(result, compiler);
+  RegisterVariable__UNITF(result, compiler);
+  RegisterVariable__UNITC(result, compiler);
+  RegisterVariable__UNITONOFF(result, compiler);
+  RegisterVariable__UNITCOMP(result, compiler);
+  RegisterVariable__UNITLEN(result, compiler);
+  RegisterArrayType_ArrayType_1000180(result, compiler);
+  RegisterVariable__DISCRADC(result, compiler);
+  RegisterVariable__TIMERANG(result, compiler);
+  RegisterVariable__CHANGEDELAYRANG(result, compiler);
+  RegisterVariable__CHANGELENGTH(result, compiler);
+  RegisterVariable__RESHIGH(result, compiler);
+  RegisterVariable__RESLOW(result, compiler);
+  RegisterVariable__RESCOM(result, compiler);
+  RegisterVariable__LOW(result, compiler);
+  RegisterVariable__HIGH(result, compiler);
+  RegisterVariable__CMPCHK(result, compiler);
+  RegisterVariable__SKIP(result, compiler);
+  RegisterVariable__numtst(result, compiler);
+  RegisterVariable__lim(result, compiler);
+  RegisterSubrangeType_SubType_1000201(result, compiler);
+  RegisterArrayType_ArrayType_1000197(result, compiler);
+  RegisterVariable__limx(result, compiler);
+  RegisterVariable__pnno(result, compiler);
+  RegisterSubrangeType_SubType_1000211(result, compiler);
+  RegisterArrayType_ArrayType_1000207(result, compiler);
+  RegisterVariable__tsun(result, compiler);
+  RegisterSubrangeType_SubType_1000220(result, compiler);
+  RegisterArrayType_ArrayType_1000216(result, compiler);
+  RegisterVariable__tsnam(result, compiler);
+  RegisterVariable__izm_(result, compiler);
+  RegisterVariable__curgrp(result, compiler);
+  RegisterVariable__maxgrp(result, compiler);
+  RegisterVariable__maxtst(result, compiler);
+  RegisterSubrangeType_SubType_1000233(result, compiler);
+  RegisterArrayType_ArrayType_1000229(result, compiler);
+  RegisterVariable__grpmsg(result, compiler);
+  RegisterVariable__lastpl(result, compiler);
+  RegisterVariable__endpr(result, compiler);
+  RegisterVariable__smenagr(result, compiler);
+  RegisterVariable__shiftres(result, compiler);
 end;
 
-function Register_TESTER_ISTINA_GLOBAL: Integer;
+function Register_TESTER_ISTINA_GLOBAL(compiler: TPaxCompiler): Integer;
 begin
-  result := RegisterNamespace(0, 'GLOBAL');
-  Part1(result);
-  UnregisterUsingNamespaces;
+  result := compiler.RegisterNamespace(0, 'Istina_Global');
+  Part1(result, compiler);
+  compiler.UnregisterUsingNamespaces;
 end;
 
 end.

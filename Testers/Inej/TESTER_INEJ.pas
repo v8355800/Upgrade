@@ -114,7 +114,7 @@ end;
 
 procedure TInej.InitScriptEngine(P: Pointer);
 begin
-  Register_Inej(P);
+  Register_Inej(fPaxCompiler, P);
 end;
 
 procedure TInej.Measure(ResetOnEnd: Boolean);

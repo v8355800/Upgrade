@@ -60,7 +60,6 @@ type
 
     { SCRIPT ENGINE }
     fMeasureThread     : TThread;
-    fPaxCompiler       : TPaxCompiler;
     fPaxPascalLanguage : TPaxPascalLanguage;
     fPaxProgram        : TPaxProgram;
 
@@ -72,6 +71,8 @@ type
     FOnCommandEvent    : TOnCommmandEvent;
     FOnScriptEndEvent  : TNotifyEvent;
   protected
+    fPaxCompiler       : TPaxCompiler;
+
   	fFeathers           : TFeathers;
     fConditions         : TConditions;
     fTesterCaption      : string;
@@ -150,7 +151,7 @@ begin
   if Trim(fWP) = EmptyStr then
     Exit(False);
 
-  fPaxCompiler.Reset;
+  fPaxCompiler.ResetCompilation;
   fPaxCompiler.RegisterLanguage(fPaxPascalLanguage);
 
   fPaxCompiler.AddModule('1', fPaxPascalLanguage.LanguageName);

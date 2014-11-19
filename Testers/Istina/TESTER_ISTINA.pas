@@ -157,7 +157,7 @@ end;
 
 procedure TIstina.InitScriptEngine(P: Pointer);
 begin
-  Register_Istina(P);
+  Register_Istina(fPaxCompiler, P);
 end;
 
 procedure TIstina.Measure(ResetOnEnd: Boolean);
