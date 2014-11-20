@@ -21,13 +21,17 @@ const
 
 type
   TRequestType = (RequestA, RequestB);
+  TOnErrorEvent = procedure(Sender: TObject; ErrorCode: Cardinal;  ErrorMsg: string) of object;
 
   { Базовый класс Ввода/Вывода }
   TIstinaBaseIO = class(TObject)
   private
     FDemoMode: Boolean;
+    FOnErrorEvent: TOnErrorEvent;
+
     function GetTRA: Boolean;
     function GetTRB: Boolean;
+    procedure DoError(ErrorCode: cardinal; ErrorMsg: string);
   public
     function rPort(Reg: Word): Word; virtual; abstract;
     procedure wPort(Reg: Word; Val: Word); virtual; abstract;
@@ -39,6 +43,7 @@ type
     property DemoMode: Boolean read FDemoMode write FDemoMode;
     property TRA: Boolean read GetTRA;
     property TRB: Boolean read GetTRB;
+    property OnError: TOnErrorEvent read FOnErrorEvent write FOnErrorEvent;
   end;
 
 
@@ -264,6 +269,20 @@ begin
   FDemoMode := False;
 end;
 
+procedure TIstinaBaseIO.DoError(ErrorCode: cardinal; ErrorMsg: string);
+begin
+  if Assigned(FOnErrorEvent) then
+    FOnErrorEvent(Self, ErrorCode, ErrorMsg)
+  else
+  begin
+    {$IFDEF CONSOLE}
+      Writeln('ERROR: ', ErrorMsg);
+    {$ELSE}
+      MessageDlg(Format('ERROR: "%s"', [ErrorMsg]), mtError, [mbOk], 0);
+    {$ENDIF}
+  end;
+end;
+
 function TIstinaBaseIO.GetTRA: Boolean;
 begin
   Result := Request(RequestA);
@@ -355,13 +374,7 @@ begin
     except
       on E: Exception do
       begin
-        {$IFDEF CONSOLE}
-          writeln(E.Message);
-        {$ELSE}
-          MessageDlg(E.Message, mtError, [mbOk], 0);
-        {$ENDIF}
-
-//        ShowMessage(E.Message);
+        DoError(0, E.Message);
         Result := True;
       end;
     end;
