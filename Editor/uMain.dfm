@@ -1,6 +1,6 @@
 object fMain: TfMain
-  Left = -939
-  Top = 210
+  Left = -1004
+  Top = 214
   Caption = #1056#1077#1076#1072#1082#1090#1086#1088' '#1088#1072#1073#1086#1095#1080#1093' '#1087#1088#1086#1075#1088#1072#1084#1084
   ClientHeight = 515
   ClientWidth = 793
@@ -269,7 +269,7 @@ object fMain: TfMain
           UrlStyle.BkColor = clWhite
           UrlStyle.Style = [fsUnderline]
           UseStyler = True
-          Version = '3.1.6.0'
+          Version = '3.1.2.4'
           WordWrap = wwNone
           OnCursorChange = mmoProgramCursorChange
         end
@@ -636,7 +636,7 @@ object fMain: TfMain
     Left = 736
     Top = 424
     Bitmap = {
-      494C010121003100300110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010121003100380110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000009000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000A8A8A80073737300553F2A00553F2A00553F2A00553F2A00553F2A00553F
@@ -2016,6 +2016,7 @@ object fMain: TfMain
         #1042#1089#1077' '#1092#1072#1081#1083#1099' (*.*)|*.*|"'#1048#1085#1077#1081'" (*.inej)|*.inej|"'#1048#1089#1090#1080#1085#1072'" (*.isitna)|*' +
         '.istina'
       Dialog.FilterIndex = 2
+      Dialog.Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
       Hint = #1054#1090#1082#1088#1099#1090#1100'|'#1054#1090#1082#1088#1099#1090#1100' '#1089#1091#1097#1077#1089#1090#1074#1091#1102#1097#1080#1081' '#1092#1072#1081#1083
       ImageIndex = 21
       ShortCut = 16463
@@ -2027,6 +2028,7 @@ object fMain: TfMain
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100'|'#1047#1072#1087#1080#1089#1072#1090#1100' '#1080#1079#1084#1077#1085#1077#1085#1080#1103' '#1074' '#1092#1072#1081#1083
       ImageIndex = 13
       ShortCut = 16467
+      OnExecute = FileSaveExecute
     end
     object FileSaveAs: TFileSaveAs
       Category = #1060#1072#1081#1083
@@ -2035,6 +2037,7 @@ object fMain: TfMain
         #1042#1089#1077' '#1092#1072#1081#1083#1099' (*.*)|*.*|"'#1048#1085#1077#1081'" (*.inej)|*.inej|"'#1048#1089#1090#1080#1085#1072'" (*.isitna)|*' +
         '.istina'
       Dialog.FilterIndex = 2
+      Dialog.Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
       Hint = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1050#1072#1082'|'#1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083' '#1087#1086#1076' '#1076#1088#1091#1075#1080#1084' '#1080#1084#1077#1085#1077#1084
       ImageIndex = 22
       OnAccept = FileSaveAsAccept

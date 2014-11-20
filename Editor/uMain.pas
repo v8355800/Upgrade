@@ -72,6 +72,7 @@ type
     procedure ProgramSyntaxCheckExecute(Sender: TObject);
     procedure lbLogDblClick(Sender: TObject);
     procedure mmoProgramCursorChange(Sender: TObject);
+    procedure FileSaveExecute(Sender: TObject);
   private
     { Private declarations }
     procedure EnableForm(Enable: Boolean);
@@ -95,9 +96,9 @@ uses
   uEditor;
 
 var
-  Editor: TEditor;
-  Inej: TInej;
-  Istina: TIstina;
+  Editor : TEditor;
+  Inej   : TInej;
+  Istina : TIstina;
 
 procedure TfMain.edtPlanNameChange(Sender: TObject);
 begin
@@ -110,9 +111,9 @@ end;
 
 procedure TfMain.EnableForm(Enable: Boolean);
 begin
-	gbInfo.Visible := Enable;
-  gbPlans.Visible := Enable;
-  gbPlan.Visible := Enable;
+	gbInfo.Visible    := Enable;
+  gbPlans.Visible   := Enable;
+  gbPlan.Visible    := Enable;
   Splitter1.Visible := Enable;
   Splitter2.Visible := Enable;
 end;
@@ -134,6 +135,25 @@ end;
 procedure TfMain.FileSaveAsAccept(Sender: TObject);
 begin
 	Editor.SaveAs(TFileSaveAs(Sender).Dialog.FileName);
+
+  Editor.Load(TFileSaveAs(Sender).Dialog.FileName);
+  Self.Caption := 'Редактор рабочих программ - ' + Editor.FileName;
+  EnableForm(True);
+  mmoInfo.Text := Editor.Plans.Info;
+  FillList;
+
+  lbPlans.ItemIndex := 0;
+  lbPlansClick(lbPlans);
+end;
+
+procedure TfMain.FileSaveExecute(Sender: TObject);
+begin
+  if Application.MessageBox('Вы уверены, что хотите перезаписать РП?',
+    'Редактор рабочих программ', MB_OKCANCEL + MB_ICONWARNING +
+    MB_DEFBUTTON2) = IDOK then
+  begin
+    Editor.Save;
+  end;
 end;
 
 procedure TfMain.FillList;
@@ -164,7 +184,7 @@ begin
   Istina := TIstina.Create(nil);
   Inej.InitScriptEngine(@Inej);
   Istina.InitScriptEngine(@Istina);
-  Inej.OnError := OnErrorEvent;
+  Inej.OnError   := OnErrorEvent;
   Istina.OnError := OnErrorEvent;
 end;
 
