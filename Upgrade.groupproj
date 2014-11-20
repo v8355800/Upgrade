@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{069B91BD-2334-40D5-900E-2E14CDDFC39B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Control\Testers.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Editor\Editor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Syntax\Syntax.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Testers">
+        <MSBuild Projects="Control\Testers.dproj"/>
+    </Target>
+    <Target Name="Testers:Clean">
+        <MSBuild Projects="Control\Testers.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Testers:Make">
+        <MSBuild Projects="Control\Testers.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Editor">
+        <MSBuild Projects="Editor\Editor.dproj"/>
+    </Target>
+    <Target Name="Editor:Clean">
+        <MSBuild Projects="Editor\Editor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Editor:Make">
+        <MSBuild Projects="Editor\Editor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Syntax">
+        <MSBuild Projects="Syntax\Syntax.dproj"/>
+    </Target>
+    <Target Name="Syntax:Clean">
+        <MSBuild Projects="Syntax\Syntax.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Syntax:Make">
+        <MSBuild Projects="Syntax\Syntax.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Testers;Editor;Syntax"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Testers:Clean;Editor:Clean;Syntax:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Testers:Make;Editor:Make;Syntax:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
