@@ -74,6 +74,7 @@ type
     procedure mmoProgramCursorChange(Sender: TObject);
   private
     { Private declarations }
+    procedure EnableForm(Enable: Boolean);
 		procedure FillList;
     procedure OnErrorEvent(Sender: TObject; ErrorCode: Cardinal;  ErrorMsg: string);
   public
@@ -107,11 +108,21 @@ begin
   end;
 end;
 
+procedure TfMain.EnableForm(Enable: Boolean);
+begin
+	gbInfo.Visible := Enable;
+  gbPlans.Visible := Enable;
+  gbPlan.Visible := Enable;
+  Splitter1.Visible := Enable;
+  Splitter2.Visible := Enable;
+end;
+
 procedure TfMain.FileOpenAccept(Sender: TObject);
 begin
   if Editor.Load(TFileOpen(Sender).Dialog.FileName) then
   begin
     Self.Caption := 'Редактор рабочих программ - ' + Editor.FileName;
+    EnableForm(True);
     mmoInfo.Text := Editor.Plans.Info;
     FillList;
 
@@ -146,12 +157,13 @@ end;
 
 procedure TfMain.FormCreate(Sender: TObject);
 begin
+  EnableForm(False);
+
 	Editor := TEditor.Create;
   Inej   := TInej.Create(nil);
   Istina := TIstina.Create(nil);
   Inej.InitScriptEngine(@Inej);
   Istina.InitScriptEngine(@Istina);
-
   Inej.OnError := OnErrorEvent;
   Istina.OnError := OnErrorEvent;
 end;
